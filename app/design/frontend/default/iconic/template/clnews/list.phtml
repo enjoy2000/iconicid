@@ -1,0 +1,77 @@
+<div id="page-title">
+	<h2 class="blue-tit text-blue">
+		<?php echo $this->__(Mage::getStoreConfig('clnews/news/title')) ?>
+		<?php if (Mage::getStoreConfig('clnews/rss/enable')): ?>
+		    <?php if ($this->getCurrentCategory()): ?>
+		    <?php $categoryId = $this->getCurrentCategory()->getId() ?>
+		    <?php endif ?>
+		    <a href="<?php echo Mage::Helper('clnews')->getRssLink(isset($categoryId)?$categoryId:null) ?>">
+		        <img src="<?php echo $this->getSkinUrl('css/clnews/images/rss.gif') ?>">
+		    </a>
+		<?php endif ?>
+	</h2>
+</div>
+<div class="left-col fll width-60">
+<?php $items = $this->getNewsItems() ?>
+<?php foreach ($items as $item): ?>
+<div class="news-item clearfix">
+	
+    <?php $imageSize = $this->getShortImageSize($item) ?>
+    <div class="news-image fll"><img src="<?php echo Mage::helper('clnews')->resizeImage(str_replace('clnews/', '', $item->getImageShortContent()), $imageSize['width'], $imageSize['height'], 'clnews'); ?>" /></div>
+    
+    <div class="news-content flr width-70">
+	    <h5><a class="text-blue" href="<?php echo $item->getUrl($this->getCategory()) ?>" ><?php echo $item->getTitle();?></a></h5>
+	    <?php if (Mage::helper('clnews')->showDate()): ?>
+	        <span class="date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
+	    <?php endif ?>
+	    <?php if (Mage::helper('clnews')->showCategory()): ?>
+	        <?php if ($this->getCategoryByNews($item->getID())->getData('title') != ''): ?>
+	            <span class="date">&nbsp;|&nbsp; <?php echo $this->getCategoryByNews($item->getID())->getData('title') ?></span>
+	        <?php endif; ?>
+	    <?php endif; ?>
+	    <?php if ($item->getAuthor()): ?>
+	    <span class="author"><span class="line">|</span><?php echo $this->__('Đăng bởi') ?> <strong><?php echo $item->getAuthor() ?></strong></span>
+	    <?php endif ?>
+	    <div class="description">
+	        <?php echo Mage::helper('job')->string_limit_words($item->getShortContent(),70); ?>
+	
+	        <?php if(Mage::helper('clnews')->enableLinkRoute()): ?>
+	        <?php if($link = Mage::helper('clnews')->getLinkRoute()): ?>
+	            <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $link . '&raquo;';?></a>
+	        <?php else: ?>
+	            <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $this->__('view more') . '&raquo;';?></a>
+	        <?php endif; ?>
+	    <?php endif; ?>
+	    </div>
+    </div>
+</div>
+<?php endforeach; ?>
+
+<?php if($this->getLastPageNum()>1): ?>
+<div class="pager">
+    <p class="page">
+    <?php if (!$this->isFirstPage()): ?>
+        <a href="<?php echo $this->getPreviousPageUrl() ?>">
+        	<img src="<?php echo $this->getSkinUrl('images/pager_arrow_left.gif') ?>" alt="<?php echo $this->__('Previous') ?>" class="v-middle" />
+        </a>
+    <?php endif;?>
+    <?php foreach ($this->getPages() as $_page): ?>
+        <?php if ($this->isPageCurrent($_page)): ?>
+            <span><?php echo $_page ?></span>
+        <?php else: ?>
+            <a href="<?php echo $this->getPageUrl($_page) ?>"><?php echo $_page ?></a>
+        <?php endif ?>
+    <?php endforeach; ?>
+    <?php if (!$this->isLastPage()): ?>
+        <a href="<?php echo $this->getNextPageUrl() ?>">
+        	<img src="<?php echo $this->getSkinUrl('images/pager_arrow_right.gif') ?>" alt="<?php echo $this->__('Next') ?>" class="v-middle" />
+        </a>
+    <?php endif ?>
+    </p>
+</div>
+<?php endif;?>
+</div>
+<div class="right-col flr width-30">
+	<?php echo $this->getChildHtml('right.clnews.categories') ?>
+	<?php echo $this->getChildHtml('right.clnews.latest') ?>
+</div>

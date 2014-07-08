@@ -1,0 +1,13 @@
+<div class="job_filter">
+	<h3><?php echo $this->getTitle(); ?></h3>
+	<ul>
+		<?php foreach($this->getFilterCollection() as $item): ?>
+		<li>
+			<a href="<?php echo $this->getUrl('*/*/*', array(
+    			'_query' => array($this->getParamName() => $item->getId()),
+    			'_current' => true,
+			)) ?>"><?php echo $item->getName(); ?></a>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+</div>

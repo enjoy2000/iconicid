@@ -1,0 +1,126 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
+<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
+<?php if(strpos($bodyclass, 'blog-detail-index')): ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=516325528419845&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php endif; ?>
+<header id="header">
+	<!-- Header Menu & Logo -->
+	<div id="header-menu">
+		<div class="wrapper clearfix">
+			<!-- Logo -->
+			<div id="logo" class="fll">
+				<a title="Iconic" href="/">
+					<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
+				</a>
+			</div><!-- End Logo -->
+			
+			<!-- Menu -->
+			<div id="menu" class="flr">
+				<ul>
+					<li class="<?php echo strpos($bodyclass, 'cms-index-index') ? 'current-menu-item' : ''  ?>">
+						<a href="/"><?php echo $this->__('Trang chủ') ?></a>
+					</li>
+					<li class="<?php echo strpos($bodyclass, 'cms-nguoi-tim-viec') ? 'current-menu-item' : ''  ?>">
+						<a href="/nguoi-tim-viec"><?php echo $this->__('Người tìm việc') ?></a>
+					</li>
+					<li class="<?php echo strpos($bodyclass, 'cms-nha-tuyen-dung') ? 'current-menu-item' : ''  ?>">
+						<a href="/nha-tuyen-dung"><?php echo $this->__('Nhà tuyển dụng') ?></a>
+					</li>
+					<li class="<?php echo strpos($bodyclass, 'blog') ? 'current-menu-item' : ''  ?>">
+						<a href="/blog"><?php echo $this->__('Blog') ?></a>
+					</li>
+					<li class="<?php echo strpos($bodyclass, 'cms-gioi-thieu-cong-ty') ? 'current-menu-item' : ''  ?>">
+						<a href="/gioi-thieu-cong-ty"><?php echo $this->__('Giới thiệu công ty') ?></a>
+					</li>
+				</ul>
+			</div><!-- End Menu -->
+			
+			<!-- Begin Top Social Icons -->
+			<div class="top-social">
+				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="/<?php echo Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
+				<?php else: ?>
+					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
+					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
+					<?php endif; ?>
+				<?php endif; ?>
+				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>
+				<a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/iconic4vn">&nbsp;</a>
+				<a class="google" target="_blank" title="Google+" href="https://plus.google.com/u/0/b/112764902169096553590/112764902169096553590/">&nbsp;</a>
+			</div><!-- End Top Social Icons -->
+		</div>
+	</div><!-- End Header Menu & Logo -->
+	
+	<!-- Breadcrumb -->
+	<?php if($this->getChildHtml('breadcrumbs')): ?>
+	<div id="breadcrumbs">
+		<div class="wrapper">
+    		<?php echo $this->getChildHtml('breadcrumbs') ?>
+    	</div>
+	</div>
+	<?php endif; ?>
+	<!-- End Breadcrumb -->
+	
+	<!-- Header Landing -->
+	<div id="header-landing">
+		<div class="wrapper">
+			<p class="slogan"><?php echo $this->__('Việc Làm Tốt Nhất Cho Người Việt') ?></p>
+			
+			<!-- Logged In -->
+			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+				<div id="user" class="logged">
+					<span id="logged-user">
+						<?php echo $this->__('Xin chào, %s', Mage::getSingleton('customer/session')->getCustomer()->getName()) ?>
+					</span>
+					<a class="last" id="logout" href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"><?php echo $this->__('Đăng xuất') ?></a>
+					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
+						<a href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="bg-blue logged" id="login"><?php echo $this->__('Tạo hồ sơ trên Iconic') ?></a>
+					<?php endif; ?>
+				</div>
+				
+			<!-- Logged Out -->
+			<?php else: ?>
+				<div id="user">
+					<a href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="bg-blue" id="login"><?php echo $this->__('Tạo hồ sơ trên Iconic') ?></a>
+					<a href="<?php echo Mage::getUrl(Mage::helper('job')->getRegisterUrl()) ?>" class="bg-white last" id="register"><?php echo $this->__('Đăng ký') ?></a>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div><!-- End Header Landing -->
+</header>

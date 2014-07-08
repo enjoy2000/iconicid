@@ -1,0 +1,37 @@
+<?php $items = $this->getLatestNewsItems() ?>
+<?php if (count($items)): ?>
+<div class="block news-categories">
+    <div class="head block-title">
+        <strong><span class="blue-tit text-blue"><?php echo $this->__('Bài viết mới nhất');?></span></strong>
+    </div>
+    <div class="block-content">
+        <div class="menu-categories">
+            <ul>
+                <?php foreach ($items as $item): ?>
+                	<?php if ($item->getData('status') == 1):?>
+                    <li class="clearfix">
+                    	<img class="fll" src="<?php echo $this->getBaseUrl().'media/'.$item->getImageShortContent() ?>" alt="" />
+                        <div class="item-content flr">
+	                        <a title="<?php echo $item->getTitle() ?>" class="width-100" href="<?php echo str_replace('clnews', $this->getAlias(), $item->getUrl()) ?>" >
+	                        	<?php echo Mage::helper('job')->limitText(strip_tags($item->getTitle())) ?>
+	                        </a>
+	                        <?php if (Mage::helper('clnews')->showDate()): ?>
+	                            <span class="width-100 date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
+	                        <?php endif; ?>
+	                        <?php if($item->getAuthor()): ?>
+	                        <span class="width-100 author">
+	                        	<?php echo $this->__('Đăng bởi <span>%s</span>', $item->getAuthor()) ?>
+	                        </span>
+	                        <?php endif; ?>
+	                       	<!--                    
+	                        <span class="short-desc width-100">
+	                        	<?php echo Mage::helper('job')->string_limit_words(strip_tags($item->getShortContent())) ?>
+	                        </span>
+	                        -->
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

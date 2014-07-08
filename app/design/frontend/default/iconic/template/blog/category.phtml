@@ -1,0 +1,34 @@
+	<h2><?php echo $this->__('BLOG CATEGORY') ?></h2>
+	<ul class="parent">
+		<li class="clearfix <?php echo (count($this->getParent()) < 1) ? 'active' : '' ?>">
+			<a href="/blog/" title="<?php echo $this->__('すべて') ?>">
+				<?php echo $this->__('すべて') ?>
+				<span><?php echo $this->getCount() ?></span>
+			</a>
+		</li>
+		<?php foreach($this->getParentCollection() as $parent): ?>
+		<li class="clearfix <?php echo (in_array($parent->getId(), $this->getParent())) ? 'active' : '' ?>">
+			<a href="<?php echo $parent->getUrl() ?>" class="parent parent<?php echo $parent->getId() ?>">
+				<?php echo $parent->getName() ?>
+				<span><?php echo $parent->getCount() ?></span>
+			</a>
+			<?php $cats = Mage::getModel('blog/category')->getCollection()->addFieldToFilter('parentcategory_id',$parent->getId()) ?>
+			<?php if($cats->count() > 0): ?>
+				<ul class="sub">
+				<?php foreach($cats as $cat): ?>
+					<li class="clearfix <?php echo (in_array($cat->getId(), $this->getCat())) ? 'active' : '' ?>">
+						<a href="<?php echo $cat->getUrl() ?>" class="sub sub<?php echo $cat->getId() ?>" title="<?php echo $cat->getName() ?>">
+							<?php echo $cat->getName() ?>
+							<span><?php echo $cat->getCount() ?></span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+	<form id="keyword-search" method="post" action="/blog/index/search">
+		<input class="inline" placeholder="<?php echo $this->__('タイトル') ?>" name="q" type="text" value="<?php $this->getRequest()->getParam('q') ?>" />
+		<button class="btn inline" type="submit">&nbsp;</button>
+	</form>

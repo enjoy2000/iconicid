@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		
+    </default>
+    
+    <blog_index_index>
+    	<reference name="head">
+    		<action method="addCss"><stylesheet>css/blog2.css</stylesheet></action>
+            <action method="addJs"><script>iconic/blog.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="blog" template="blog/index.phtml">
+            	<block type="blog/category" name="category" template="blog/category.phtml" />
+            	<block type="blog/result" name="result" template="blog/result.phtml" />
+            	<block type="blog/newest" name="newest" template="blog/newest.phtml" />
+            </block>
+        </reference>
+    </blog_index_index>
+    
+    <blog_detail_index>
+    	<reference name="head">
+    		<action method="addCss"><stylesheet>css/blog2.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="blog" template="blog/blog-details.phtml">
+            	<block type="blog/category" name="category" template="blog/category.phtml" />
+            	<block type="blog/detail" name="detail" template="blog/detail.phtml" />
+            	<block type="blog/newest" name="newest" template="blog/newest.phtml" />
+            </block>
+        </reference>
+    </blog_detail_index>
+</layout>

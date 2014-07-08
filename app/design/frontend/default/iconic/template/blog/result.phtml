@@ -1,0 +1,35 @@
+<?php if($this->getResults()->count() > 0): ?>
+	<form id="ajax-form">
+	<?php foreach($this->getResults() as $blog): ?>
+		<?php 
+		$author = Mage::getModel('blog/author')->load($blog->getAuthorId());
+		?>
+		<div class="blog-wrapper clearfix">
+			<input type="hidden" name="ids[]" value="<?php echo $blog->getId() ?>" />
+			<img class="fll" src="/media/<?php echo $blog->getPhoto() ?>" alt="" width="162" height="125">
+		    <div class="blog-info fll">
+		        <h4><a href="<?php echo $blog->getUrl() ?>" title="<?php echo $blog->getTitle() ?>"><?php echo $blog->getTitle() ?></a></h4>
+		        <div class="inline date">
+		            <?php echo $blog->getDate() ?>
+		        </div>
+		        <div class="inline author"><img width="25" height="25" class="author-img" alt="" src="/media/<?php echo $author->getImage() ?>"><a href="<?php echo $author->getLink() ?>"><?php echo $author->getName() ?></a>
+		        </div>
+		        <br class="clear">
+		        <?php foreach($blog->getParentCats() as $parentCat): ?>
+		        <div class="inline cat parent<?php echo $parentCat->getId() ?>">
+		        	<?php echo $parentCat->getName() ?>
+		        </div>
+		        <?php endforeach; ?>
+		        <br class="clear">
+		        <div class="social">
+		            <span class="inline twitter"><?php echo $blog->getTwitter() ?></span>
+		            <span class="inline fb"><?php echo $blog->getFacebook() ?></span>
+		        </div>
+		    </div>
+		</div>
+	<?php endforeach; ?>
+	</form>
+	<?php echo $this->getPagerHtml() ?>
+<?php else: ?>
+<h2 class="no-result"><?php echo $this->__('No result') ?></h2>
+<?php endif; ?>

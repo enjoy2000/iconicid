@@ -1,0 +1,288 @@
+<?php $data = $this->getFormData(); ?>
+<div class="create-cv">
+    <div class="page-title">
+        <h1><?php echo $this->__('Tạo hồ sơ') ?></h1>
+    </div>
+    <form action="/<?php echo Mage::helper('job')->getCreateCVUrl() ?>" method="post" id="form-validate">
+    	<div class="row heading">
+    		<span><?php echo $this->__('Thông tin chung') ?></span>
+    	</div>
+    	<div class="row row2">
+    		<input readonly required type="text" class="first" id="ho" name="ho" placeholder="<?php echo $this->__('Họ') ?>" value="<?php echo $this->getCustomer()->getLastname() ?>" />
+    		<input readonly required type="text" class="last" id="ten" name="ten" placeholder="<?php echo $this->__('Tên') ?>" value="<?php echo $this->getCustomer()->getFirstname() ?>" />
+    	</div>
+    	
+    	<div class="row row3">
+    		<span class="re">*</span>
+    		<span class="re re3">*</span>
+    		<select required id="day" class="first" name="day">
+    			<option value=""><?php echo $this->__('Ngày') ?></option>
+            	<?php 
+            	for($i = 1; $i <= 31;$i++): ?>
+            	<option <?php echo ($data['day']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    		<select required id="month" name="month" class="middle">
+    			<option value=""><?php echo $this->__('Tháng') ?></option>
+            	<?php 
+            	for($i = 1; $i <= 12;$i++): ?>
+            	<option <?php echo ($data['month']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    		<input readonly class="last select" id="year" type="text" name="year" value="<?php echo $this->getCustomer()->getBirthYear() ?>" />
+    	</div>
+    	
+    	<div class="row row2 clearfix">
+    		<input readonly type="text" id="sex" class="first select" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
+    		<select name="nation" id="nation" class="last">
+    			<option value="">Quốc tịch</option>
+    			<option value="Việt Nam">Việt Nam</option>
+    			<option value="Nước ngoài">Nước ngoài</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row1">
+    		<input type="text" name="address" id="address" placeholder="Địa chỉ cư trú" />
+    	</div>
+    	
+    	<div class="row row2">
+    		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
+    		
+    		<select name="country" id="country" class="last">
+    			<option value="">Quốc gia</option>
+    			<option value="Việt Nam">Việt Nam</option>
+    			<option value="Malaysia">Malaysia</option>
+    			<option value="Nhật Bản">Nhật Bản</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<span class="re">*</span>
+    		<input required type="number" class="first" name="phone" id="phone" placeholder="Di động*" />
+    		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email*" value="<?php echo $this->getCustomer()->getEmail() ?>" />
+    	</div>
+    	
+    	<div class="row row3">
+    		<input type="number" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
+    		<select class="mid" name="currency" id="currency">
+    			<option value="">Tiền tệ</option>
+    			<option value="USD">USD</option>
+    			<option value="VND">VND</option>
+    		</select>
+    		<select class="last" name="salarytype" id="salarytype">
+    			<option value="">Gross/NET</option>
+    			<option value="Gross">Gross</option>
+    			<option value="NET">NET</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Công việc mong muốn</span>
+    	</div>
+    	
+    	<div class="row row3">
+    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn*" />
+    		<select required class="mid" name="currency2" id="currency2">
+    			<option value="">Tiền tệ</option>
+    			<option value="USD">USD</option>
+    			<option value="VND">VND</option>
+    		</select>
+    		<select required class="last" name="salarytype2" id="salarytype2">
+    			<option value="">Gross/NET</option>
+    			<option value="Gross">Gross</option>
+    			<option value="NET">NET</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<span class="re">*</span>
+    		<span class="re re2">*</span>
+    		<select required class="first" name="category" id="category">
+    			<option value="">Ngành nghề</option>
+				<?php echo $this->getCategoryList($data['category']) ?>
+    		</select>
+    		<select required class="last" name="function" id="function">
+    			<option value="">Chức năng</option>
+				<?php echo $this->getFunctionList($data['function']) ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="location2" id="location2">
+    			<option value="">Địa điểm</option>
+    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($data['location2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		<select class="last" name="level" id="level">
+    			<option value="">Cấp độ công việc</option>
+    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
+    			<option value="Experienced">Có Kinh Nghiệm</option>
+    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
+    			<option value="Manager">Quản Lý</option>
+    			<option value="Executive Management">Quản Lý Cấp Cao</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Trình độ học vấn</span>
+    		<div class="last">
+	    		<input type="radio" name="education" value="1" /> Nước ngoài
+	    		<input type="radio" name="education" value="2" /> Việt Nam
+    		</div>
+    	</div>
+    	
+    	<div class="row row2">
+    		<input type="text" class="first" name="school" placeholder="Tên trường" />
+    		<input type="text" class="last" name="spec" placeholder="Chuyên ngành" />
+    	</div>
+    	
+    	<div class="row row2">
+    		<select name="degree" id="degree" class="first">
+    			<option value="">Bằng cấp</option>
+    			<option value="Diploma">Trung cấp</option>
+    			<option value="College">Cao đẳng</option>
+    			<option value="Bachelor">Đại học</option>
+    			<option value="Master">Thạc sĩ</option>
+    			<option value="Doctor">Tiến sĩ</option>
+    		</select>
+    		<select name="graduate" id="graduate" class="last">
+    			<option value="">Năm tốt nghiệp</option>
+    			<?php 
+            	$y = (int) Date('Y');
+            	for($i = $y; $i >= $y-40;$i--): ?>
+            	<option <?php echo ($data['graduate']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Kinh nghiệm</span>
+    		<div class="last">
+    			<input type="checkbox" name="newgraduate" id="newgraduate" value="1"/> Tôi vừa mới ra trường, chưa có kinh nghiệm làm việc
+    		</div>
+    	</div>
+    	
+    	<div class="row row2">
+    		<span class="re">*</span>
+    		<span class="re re2">*</span>
+    		<select required class="first" name="category2" id="category2">
+    			<option value="">Ngành nghề</option>
+				<?php echo $this->getCategoryList($data['category2']) ?>
+    		</select>
+    		<select required class="last" name="function2" id="function2">
+    			<option value="">Chức năng</option>
+				<?php echo $this->getFunctionList($data['function2']) ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="level2" id="level2">
+    			<option value="">Cấp độ công việc</option>
+    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
+    			<option value="Experienced">Có Kinh Nghiệm</option>
+    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
+    			<option value="Manager">Quản Lý</option>
+    			<option value="Executive Management">Quản Lý Cấp Cao</option>
+    		</select>
+    		<select name="exp" id="exp" class="last">
+    			<option value="">Số năm kinh nghiệm</option>
+    			<?php for($i=1;$i<41;$i++): ?>
+    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> năm</option>
+    			<?php endfor; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row1">
+    		<textarea placeholder="Chi tiết công việc" name="detail" id="detail"></textarea>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Ngôn ngữ</span>
+    	</div>
+    	
+    	<div class="row lang">
+    		<div class="text">
+    			Tiếng Anh
+    		</div>
+    		<select name="en" id="en">
+    			<option value="">Cấp độ</option>
+    			<option value="Native">Bản ngữ</option>
+    			<option value="Advanced">Cao cấp</option>
+    			<option value="Intermediate">Trung cấp</option>
+    			<option value="Beginner">Sơ cấp</option>
+    			<option value="No">Không</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		<div class="text">
+    			Tiếng Nhật
+    		</div>
+    		<select name="jp" id="jp">
+    			<option value="">Cấp độ</option>
+    			<option value="Native">Bản ngữ</option>
+    			<option value="Advanced">Cao cấp</option>
+    			<option value="Intermediate">Trung cấp</option>
+    			<option value="Beginner">Sơ cấp</option>
+    			<option value="No">Không</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		<div class="text">
+    			Tiếng Việt
+    		</div>
+    		<select name="vn" id="vn">
+    			<option value="">Cấp độ</option>
+    			<option value="Native">Bản ngữ</option>
+    			<option value="Advanced">Cao cấp</option>
+    			<option value="Intermediate">Trung cấp</option>
+    			<option value="Beginner">Sơ cấp</option>
+    			<option value="No">Không</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		<textarea placeholder="Thêm trình độ ngoại ngữ khác" name="otherlang" id="otherlang"></textarea>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Kỹ năng</span>
+    	</div>
+    	
+    	<div class="row lang">
+    		<textarea name="skill" id="skill"></textarea>
+    	</div>
+    	
+    	<div class="row">
+    		<input required type="radio" name="decide" value="Tôi muốn tìm việc/chuyển việc ngay bây giờ" /> Tôi muốn tìm việc/chuyển việc ngay bây giờ<br />
+    		<input required type="radio" name="decide" value="Tôi muốn chuyển nếu có công việc/công ty tốt hơn" /> Tôi muốn chuyển nếu có công việc/công ty tốt hơn<br />
+    		<input required type="radio" name="decide" value="Tôi muốn chuyển việc trong tương lai (sau 1 năm)" /> Tôi muốn chuyển việc trong tương lai (sau 1 năm)<br />
+    	</div>
+    	
+    	<div class="row">
+    		<input class="btn button-blue button" type="submit" value="Gửi" name="submit" />
+    	</div>
+    </form>
+</div>
+<script>
+(function($){
+	$(document).ready(function(){
+		$('#newgraduate').on('change', function(){
+			if($(this).prop('checked')==true){
+				$('#category2, #function2, #level2, #exp, #detail').prop('disabled', true);
+			}else{
+				$('#category2, #function2, #level2, #exp, #detail').prop('disabled', false);
+			}
+		});
+		$('input[type="number"]').on('keyup', function(){
+			if(!$.isNumeric($(this).val())){
+				alert('Bạn chỉ được điền số trong ô này.');
+			}
+		});
+		//$('#category,#category2,#function,#function2').select2();
+	});
+})(jQuery);
+</script>

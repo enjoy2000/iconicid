@@ -1,0 +1,102 @@
+#account-page .row{
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#account-page .row .re{
+	position: absolute;
+	color: red;
+	left: -8px;
+	top: 16px;
+}
+#account-page .row .re2{
+	left: 188px;
+}
+#account-page .row .re3{
+	left: 115px;
+}
+#account-page .row input{
+	color: #000;
+}
+#account-page .row:after{
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+#account-page .row .last{
+	float: right;
+}
+
+#account-page .row.row2 input{
+	width: 130px;
+}
+#account-page .row.row2 select{
+	width: 155px;
+	background: url('../images/select-arrow.png') 120px center transparent no-repeat;
+}
+#account-page .row.row3 select{
+	background: url('../images/select-arrow.png') 70px center transparent no-repeat;
+}
+#account-page .row.row3 input,
+#account-page .row.row3 select{
+	width: 105px;
+}
+#account-page input[type="radio"],
+#account-page input[type="checkbox"]{
+	width: auto;
+	display: inline;
+}
+#account-page .row.lang > *{
+	display: inline-block;
+}
+#account-page .row.lang > .text{
+	width: 80px;
+}
+#account-page .row.lang > select{
+	width: 120px;
+}
+#account-page textarea{
+	width: 324px;
+	resize: vertical;
+	margin-top: 10px;
+}
+#account-page .row.heading{
+	margin-top: 20px;
+}
+#account-page .row.heading > span{
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #636466;
+	padding-bottom: 5px;
+	background: url('../images/long-black-tit.png') left bottom no-repeat transparent;
+}
+#account-page .row.heading > .last{
+	letter-spacing: -1px;
+}
+#account-page .row.heading > .last input{
+	margin-top: 0;
+	margin-left: 10px;
+}
+#account-page .row #month{
+	margin-left: 15px;
+}
+#account-page input[type="submit"]{
+	width: auto;
+	margin: auto;
+	display: block;
+	margin-top: 20px;
+	border: 0;
+	font-size: 20px;
+	padding: 4px 20px;
+	color: #fff;
+}
+#year{
+	width: 80px!important;
+}
+input[readonly]{
+	background-color: #ffe6cb!important;
+}

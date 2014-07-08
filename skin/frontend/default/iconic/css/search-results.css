@@ -1,0 +1,155 @@
+/*
+	SEARCH RESULTS
+*/
+#search_results{
+	margin-top: 30px;
+}
+#search_results .info-search .info{
+	padding: 0 20px;
+}
+#search_results .info-search .info + .info{
+	border-left: solid 1px #ccc;
+}
+#search_results .info-search .info span{
+	color: #1197EC;
+}
+#search_results .info-search .amount{
+	margin-bottom: 30px;
+}
+#search_results .info-search .amount span{
+	color: #1197EC;
+	font-weight: bold;
+}
+#search_results .info-search > p{
+	padding: 0 20px;
+}
+#search_results .info-search > p span{
+	color: #1197EC;
+}
+#search_results .info-search .info{
+	margin-bottom: 10px;
+}
+#search_results .results .content{
+	border: solid 6px #acdbf8;
+	padding: 15px 0;
+	border-radius: 8px;
+}
+#search_results .results .content .job{
+	padding: 10px 20px;
+}
+#search_results .results .content .job + .job{
+	border-top: solid 1px #828282;
+}
+#search_results .results .content .job a.title{
+	display: block;
+	color: #000;
+	text-decoration: none;
+}
+#search_results .results .content .job a.title:hover{
+	color: #1197EC;
+}
+#search_results .pager{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#search_results .pager ol{
+	list-style: none;
+}
+#search_results .pager ol li{
+	display: inline-block;
+	border: solid 1px #ccc;
+}
+#search_results .pager ol li > a{
+	padding: 3px 10px;
+	display: block;
+	text-decoration: none;
+}
+#search_results .pager ol li.current{
+	border-color: #1197EC;
+	color: #1197EC;
+	font-weight: bold;
+	padding: 3px 10px;
+}
+#search_results .results .no-results{
+	border: solid 6px #acdbf8;
+	border-radius: 8px;
+	margin-top: 30px;
+}
+#search_results .results .no-results img{
+	padding: 8px 15px;
+	background-color: #ACDBF8;
+}
+#search_results .results .no-results .text{
+	padding: 10px 30px;
+	font-weight: bold;
+}
+#search_results .search-filters{	
+	border: solid 6px #acdbf8;
+	border-radius: 8px;
+	padding-bottom: 20px;
+}
+#search_results .search-filters .heading{
+	padding: 15px 20px;
+	background-color: #dcdddd;
+	padding-bottom: 0;
+}
+#search_results .search-filters .heading h4{
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+#search_results .search-filters .filter{
+	padding: 20px;
+	padding-bottom: 0;
+}
+#search_results .search-filters .filter.job-level > a{
+	display: block;
+	text-decoration: none;
+	color: #58595b;
+	padding: 2px 20px;
+	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
+}
+#search_results .search-filters .filter.job-level > a > span{
+	color: #F58220;
+}
+#search_results .search-filters .filter + .filter h4{
+	border-top: solid 1px #828282;
+	padding-top: 20px;
+}
+#search_results .search-filters .filter h4{
+	color: #1197EC;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+#search_results .search-filters .filter .parent > a{
+	display: block;
+	padding: 2px 20px;
+	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
+	text-decoration: none;
+	color: #58595b;
+}
+#search_results .search-filters .filter .parent > a > span{
+	color: #f58220;
+}
+#search_results .search-filters .filter .parent.active > a{
+	background: url('../images/list-arrow-active.png') 4px 5px no-repeat transparent;
+	
+}
+#search_results .search-filters .filter .parent > ul{
+	display: none;
+	padding: 0 20px;
+	margin-bottom: 15px;
+}
+#search_results .search-filters .filter .parent > ul li a{
+	color: #000;
+	text-decoration: none;
+	display: block;
+}
+#search_results .search-filters .filter .parent > ul li a > span{
+	color:#F58220;
+}
+#search_results .search-filters .filter a:hover{
+	color: #1197EC;
+}

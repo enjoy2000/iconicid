@@ -1,0 +1,30 @@
+<?php $blog = $this->getBlog() ?>
+<div class="blog-details-content">
+	<div class="blog-parents">
+		<?php foreach($blog->getParentCats() as $parent): ?>
+			<div class="inline parent parent<?php echo $parent->getId() ?>"><?php echo $parent->getName() ?></div>
+		<?php endforeach; ?>
+	</div>
+	<span class='st_facebook_vcount' displayText='Facebook'></span>
+	<span class='st_twitter_vcount' displayText='Tweet'></span>
+	<span class='st_linkedin_vcount' displayText='LinkedIn'></span>
+	<span class='st_googleplus_vcount' displayText='Google +'></span>
+	<div class="inline"><?php echo $blog->getDate() ?></div>
+	<?php $author = Mage::getModel('blog/author')->load($blog->getAuthorId()) ?>
+	<div class="inline author">
+		<img src="/media/<?php echo $author->getImage() ?>" alt="" width="25" height="25" />
+		<a  href="<?php echo $author->getLink() ?>"><?php echo $author->getName() ?></a>
+	</div>
+	<h1><?php echo $blog->getTitle() ?></h1>
+	<div class="blog-cats">
+		<?php foreach($blog->getSubCats() as $cat): ?>
+			<div class="inline cat"><?php echo $cat->getName() ?></div>
+		<?php endforeach; ?>
+	</div>
+	<div class="full-content">
+		<?php echo $blog->getFullContent() ?>
+	</div>
+</div>
+<div id="facebook-comments">
+	<div class="fb-comments" data-width="600" data-numposts="5" data-colorscheme="light"></div>
+</div>

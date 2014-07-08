@@ -1,0 +1,90 @@
+.news-item{
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.news-item .news-image >img{
+	width: 140px;
+	height: 140px;
+	border-radius: 10px;
+}
+.news-item .news-content h5 > a{
+	text-transform: uppercase;
+	font-size: 25px;
+	line-height: 30px;
+	text-decoration: none;
+}
+.news-item .news-content span.date{
+	color: #000;
+}
+span.author span.line{
+	margin: 0 10px;
+}
+.news-item .news-content .description{
+	margin-top: 15px;
+}
+.news-item + .news-item{
+	border-top: solid 2px #bcbec0;
+}
+
+/*
+	BLOG ENTRY
+*/
+#blog-content{
+	padding-left: 20px;
+}
+#blog-content h1{
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 30px;
+}
+#blog-content h1 > a{
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 30px;
+	color: #1197EC;
+	text-decoration: none;
+}
+#blog-content .news{
+	margin-top: 25px;
+}
+#blog-content .news a{
+	color: #1197EC;
+	text-decoration: underline;
+}
+#blog-content .news_image{
+	margin-top: 25px;
+	
+}
+.right-col .blue-tit{
+	background: url('../images/white-tit.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+	color: #fff;
+}
+.right-col .block.news-categories .block-title{
+	background-color: #1197ec;
+	padding-bottom: 1px;
+}
+.right-col .block.news-categories{
+	border: solid 2px #1197EC;
+}
+body.clnews-index-index .left-col{
+	margin-left: 20px;
+}
+body.clnews-index-index .pager{
+	text-align: center;
+}
+body.clnews-index-index .pager .page a {
+	display: inline-block;
+	border: solid 1px #ccc;
+	padding: 3px 10px;
+	color: #1197EC;
+	text-decoration: none;
+}
+body.clnews-index-index .pager .page span{
+	display: inline-block;
+	border: solid 1px #ccc;
+	border-color: #1197EC;
+	color: #1197EC;
+	font-weight: bold;
+	padding: 3px 10px;
+}

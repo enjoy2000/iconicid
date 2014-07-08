@@ -1,0 +1,190 @@
+<div class="sitemap">
+	<div class="page-title">
+        <h1><?php echo $this->__('Sơ đồ trang') ?></h1>
+    </div>
+    <div class="top-sitemap">
+    	<table>
+    		<tr>
+    			<td><a href="/" title="<?php echo $this->__('Trang chủ') ?>">Trang chủ</a></td>
+    			<td><a href="/blog" title="<?php echo $this->__('Blog') ?>">Blog</a></td>
+    			<td><a href="/nguoi-tim-viec" title="<?php echo $this->__('Người tìm việc') ?>">Người tìm việc</a></td>
+    		</tr>
+    		<tr height="10"></tr>
+    		<tr>
+    			<td><a href="/gioi-thieu-cong-ty" title="<?php echo $this->__('Giới thiệu công ty') ?>">Giới thiệu công ty</a></td>
+    			<td><a href="/chinh-sach-bao-mat" title="<?php echo $this->__('Chính sách bảo mật') ?>">Chính sách bảo mật</a></td>
+    			<td><a href="/nha-tuyen-dung" title="<?php echo $this->__('Nhà tuyển dụng') ?>">Nhà tuyển dụng</a></td>
+    		</tr>
+    	</table>
+    </div>
+    <div class="bot-sitemap">
+    	<h2><?php echo $this->__('Tìm kiếm việc làm') ?></h2>
+    	
+    	<!-- Tab content -->
+    	<div id="tab-content-category">
+	    	<div class="group-category clearfix industry">
+				<h5><?php echo $this->__('Tìm việc theo ngành nghề') ?></h5>
+				<div class="list-category">
+					<div class="fll width-45">
+					<?php						
+						$ins = 0;
+						foreach($this->getIndustryCollection() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($ins < $this->getIndustryCollection()->count()/2): ?>
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></span></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
+											<?php echo $cat->getName() ?> 
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+					<?php $ins++; endforeach; ?>
+					</div>
+					<div class="flr width-45">
+					<?php						
+						$ins = 0;
+						foreach($this->getIndustryCollection() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($ins >= $this->getIndustryCollection()->count()/2): ?>
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></span></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
+											<?php echo $cat->getName() ?> 
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+					<?php $ins++; endforeach; ?>
+					</div>
+				</div>
+			</div>
+			<hr class="line"/>
+			
+			<!-- Function Category -->
+			<div class="group-category clearfix function">
+				<h5><?php echo $this->__('Tìm việc theo chức năng') ?></h5>
+				<div class="list-category">
+					<div class="fll width-45">
+					<?php						
+						$func = 0;
+						foreach($this->getFunctionCollection() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($func < $this->getFunctionCollection()->count()/2): ?>
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></span></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
+											<?php echo $cat->getName() ?> 
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+					<?php $func++; endforeach; ?>
+					</div>
+					<div class="flr width-45">
+					<?php						
+						$func = 0;
+						foreach($this->getFunctionCollection() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($func >= $this->getFunctionCollection()->count()/2): ?>
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></span></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
+											<?php echo $cat->getName() ?> 
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+					<?php $func++; endforeach; ?>
+					</div>
+				</div>
+			</div>
+			<hr class="line"/>
+			
+			<!-- Job Level -->
+			<div class="group-category clearfix job-level">
+				<h5><?php echo $this->__('Tìm việc theo đối tượng') ?></h5>
+				<div class="list-category">
+					<div class="fll width-45">
+					<?php						
+						$lev = 0;
+						foreach($this->getJobLevel() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($lev < $this->getJobLevel()->count()/2): ?>
+						<div class="parent">
+							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+						</div>
+						<?php endif; ?>
+					<?php $lev++; endforeach; ?>
+					</div>
+					<div class="flr width-45">
+					<?php						
+						$lev = 0;
+						foreach($this->getJobLevel() as $parent):
+						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
+					?>
+						<?php if($lev >= $this->getJobLevel()->count()/2): ?>
+						<div class="parent">
+							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+						</div>
+						<?php endif; ?>
+					<?php $lev++; endforeach; ?>
+					</div>
+				</div>
+			</div>
+			<hr class="line" />
+			<div class="group-category clearfix job-level">
+				<h5><?php echo $this->__('Tìm việc theo địa điểm') ?></h5>
+				<table>
+					<tr>
+					<?php $l=1;foreach($this->getLocationList() as $loc): ?>
+						<td>
+							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>/<?php echo $loc->getUrlKey() ?>" title="<?php echo $loc->getName() ?>">
+								<?php echo $loc->getName() ?>
+							</a>
+						</td>
+						<?php if($l%3==0 && $l != $this->getLocationList()->count()): ?>
+						</tr><tr>
+						<?php endif; ?>
+						<?php if($l == $this->getLocationList()->count()): ?>
+						</tr>
+						<?php endif; ?>
+					<?php $l++;endforeach; ?>
+				</table>
+			</div>
+		</div>
+    </div>
+</div>

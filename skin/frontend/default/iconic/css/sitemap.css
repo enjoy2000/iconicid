@@ -1,0 +1,43 @@
+body.job-index-sitemap #account-page{
+	padding: 0;
+	width: 650px;
+}
+.top-sitemap{
+	padding: 10px 50px;
+	padding-bottom: 40px;
+}
+.bot-sitemap{
+	padding: 10px 50px;
+	background-color: #dcddde;
+}
+.top-sitemap table{
+	width: 100%;
+}
+.top-sitemap table tr td a{
+	color: #000!important;
+	font-size: 17px;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+.sitemap #tab-content-category .group-category{
+	padding: 5px 0;
+}
+.bot-sitemap h2{
+	color: #000;
+	text-transform: uppercase;
+}
+.sitemap #tab-content-category .group-category h5{
+	color: #000;
+	font-size: 12px;
+	letter-spacing: -0.5px;
+}
+.sitemap #tab-content-category .group-category table{
+	width: 100%;
+}
+.sitemap #tab-content-category .group-category table a{
+	color: #636466;
+	text-decoration: none;
+}
+.sitemap #tab-content-category .group-category table a:hover{
+	color: #1197EC;
+}

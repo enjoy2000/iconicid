@@ -1,0 +1,101 @@
+div#page-title{
+	width: 100;
+	background-color: #dcddde;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 5px 20px;
+	margin-bottom: 30px;
+	padding-bottom: 0;
+}
+div#page-title h1{	
+	color: #1197ec;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+div.job-content{
+	padding: 0 20px;
+}
+div.job-content > div > p.tit{
+	font-size: 17px;
+	margin-bottom: 8px;
+}
+div.job-content #job-info{
+	margin-bottom: 20px;
+}
+#share{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#share img.flr{
+	margin-right: 20px;
+	margin-top: 4px;
+}
+div#job-actions a{
+	margin-right: 15px;
+	display: inline-block;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+	font-size: 17px;
+	margin-top: 15px;
+	text-decoration: none;
+	color: #fff;
+}
+div.job-details-right .job-details{
+	border: solid 4px #d1d3d4;
+	border-radius: 8px;
+}
+div.job-details-right .job-details > p{
+	padding: 10px 30px;
+}
+div.job-details-right .job-details > p+p{
+	border-top: solid 1px #d1d3d4;
+}
+div.job-details-right .job-details > p span{
+	color: #000;
+	font-weight: bold;
+	margin-right: 5px;
+}
+div#job-same-category{
+	height: 300px;
+	margin-top: 20px;
+	border: solid 4px #acdbf8;
+	border-radius: 8px;
+}
+div#job-same-category div.heading{
+	padding: 10px 20px 0px 20px;
+	background-color: #dcddde;
+}
+div#job-same-category div.heading h5{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 17px;
+	letter-spacing: -1px;
+}
+div#job-same-category ul.jobs-list{
+	list-style: none;
+	margin: 10px 0;
+	height: 210px;
+	overflow-y: auto;
+}
+div#job-same-category ul.jobs-list li{
+	padding: 10px 20px;
+}
+div#job-same-category ul.jobs-list li + li{
+	border-top: solid 1px #dcddde;
+}
+div#job-same-category ul.jobs-list li a{
+	display: block;
+	color: #000;
+	text-decoration: underline;
+	font-weight: bold;
+}
+div#job-same-category ul.jobs-list li span.created-time{
+	margin-right: 8px;
+}
+div#job-same-category a.view-more-category{
+	margin-left: 20px;
+	margin-top: 10px;
+	text-decoration: underline;
+}

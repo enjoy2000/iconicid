@@ -1,0 +1,229 @@
+/* CSS  Utilities */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.col-main a,
+#account-page a{
+	color: #1197EC;
+	text-decoration: underline;
+}
+.hide {
+    display: none;
+}
+.fll {
+	float: left;
+}
+.flr {
+	float: right;
+}
+.text-center {
+    text-align: center;
+}
+
+.hide-text {
+    text-indent: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+.bg-blue{
+	background-color: #1197ec;
+	color: #fff;
+}
+.bg-blue:hover{
+	background-color: white;
+	color: #1197ec;
+}
+.bg-white{
+	background-color: white;
+	color: #1197ec;
+}
+.bg-white:hover{
+	background-color: #1197ec;
+	color: #fff;
+}
+.inline{
+	display: inline;
+}
+.inline-b{
+	display: inline-block;
+}
+.black-tit{
+	background: url('../images/title-black.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+}
+
+.blue-tit{
+	background: url('../images/title-blue.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+}
+.white-tit{
+	background: url('../images/white-tit.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+}
+select{
+	color: #000;
+}
+select:disabled{
+	background-color: #F0F0F0!important;
+	color: #58595b;
+}
+input{
+	width: 100%;
+	border: solid 3px #d2d4d5;
+	padding: 3px 10px;
+	color: #000;
+}
+input[readonly]{
+	background-color: #F0F0F0!important;
+}
+textarea{
+	width: 100%;
+	border: solid 3px #d2d4d5;
+	padding: 3px 10px;
+	color: #000;
+}
+.btn{
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 10px;
+	text-align: center;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.btn-blue{
+	background: url('../images/btn-blue.png') center no-repeat transparent;
+}
+.btn-orange{
+	background: url('../images/btn-orange.png') center no-repeat transparent;
+}
+.btn:hover{
+	opacity: 0.8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+
+}
+.text-blue{
+	color: #1197EC;
+}
+.text-black{
+	color: #000;
+}
+.width-10{
+	width: 10%;
+}
+.width-20{
+	width: 20%;
+}
+.width-30{
+	width: 30%;
+}
+.width-35{
+	width: 35%;
+}
+.width-40{
+	width: 40%;
+}
+.width-50{
+	width: 49.5%;
+}
+.width-45{
+	width: 45%;
+}
+.width-60{
+	width: 60%;
+}
+.width-65{
+	width: 65%;
+}
+.width-70{
+	width: 70%;
+}
+.width-80{
+	width: 80%;
+}
+.width-90{
+	width: 90%;
+}
+.width-100{
+	width: 100%;
+}
+
+.button-blue{
+	background-color: #1197Ec;
+	border-radius: 8px;
+}
+.button-grey{
+	background-color: #bcbec0;
+	border-radius: 8px;
+}
+input:focus,textarea:focus{
+	outline: none;
+	border-color: #808285;
+	color: #000;
+}
+*:focus{
+	outline: none;
+}
+h1,h2,h3,h4,h5,h6{
+	color: #1197EC;
+}
+ul.small-grey{
+	list-style: url('../images/small-grey-circle.jpg');
+	margin: 20px 0;
+}
+ul.small-grey li + li{
+	margin-top: 20px;
+}
+.blue-circle-tit{
+	color: #1197EC;
+	padding-left: 20px;
+	background: url('../images/small-blue-circle.jpg') left center no-repeat transparent;
+	margin: 20px 0;
+	font-size: 17px;
+}
+ol.grey{
+	counter-reset: my-counter;
+}
+ol.grey > li{
+	position: relative;
+	padding: 10px 0;
+}
+ol.grey > li:before{
+	position: absolute;
+	left: -60px;
+	top: 7px;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	padding-top: 2px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	content: counter(my-counter);
+	counter-increment: my-counter;
+	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
+}

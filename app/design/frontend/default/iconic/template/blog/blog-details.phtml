@@ -1,0 +1,17 @@
+<form id="ajax-form">
+	<?php foreach($this->getRequest()->getParams() as $key=>$value): ?>
+	<input name="<?php echo $key ?>" type="hidden" value="<?php echo $value ?>" />
+	<?php endforeach; ?>
+	<input class="page" name="p" type="hidden" value="1" />
+</form>
+<div id="blog-page" class="clearfix">
+	<div class="fll">
+		<div id="blog-category">
+			<?php echo $this->getChildHtml('category') ?>
+		</div>
+		<?php echo $this->getChildHtml('newest') ?>
+	</div>
+	<div id="blog-details" class="fll">
+		<?php echo $this->getChildHtml('detail') ?>
+	</div>
+</div>

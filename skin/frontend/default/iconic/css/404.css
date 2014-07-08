@@ -1,0 +1,23 @@
+#account-page{
+	width: 350px;
+	position: absolute;
+	background-color: transparent;
+	top: 100px;
+	padding: 20px 80px;
+	color: #fff;
+}
+#account-page h1{
+	color: #fff;
+	font-size: 23px;
+	margin: 15px 0;
+}
+#account-page a{
+	color: #000;
+}
+#header-landing .wrapper{
+	display: none;
+}
+#header #header-landing{
+	background: url('../images/404.jpg') top center no-repeat #1197EC;
+	min-height: 710px;
+}

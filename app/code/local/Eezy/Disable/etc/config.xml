@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Eezy_Disable>
+			<version>0.1.0</version>
+		</Eezy_Disable>
+	</modules>
+	<frontend>
+        <layout>
+            <updates>
+                <disable>
+                    <file>eezy_disable.xml</file>
+                </disable>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <admin>
+        <routers>
+            <disable>
+                <use>admin</use>
+                <args>
+                    <module>Eezy_Disable</module>
+                    <frontName>disable</frontName>
+                </args>
+            </disable>
+        </routers>
+    </admin>
+    <adminhtml>
+    	<!--
+        <translate>
+            <modules>
+                <mage_adminhtml>
+                    <files>
+                        <sintax>Mage_Sintax.csv</sintax>
+                    </files>
+                </mage_adminhtml>
+            </modules>
+        </translate>
+       
+        <menu>
+            <customer>
+                <children>
+                    <disable_adminform translate="title" module="disable">
+                        <title>My Form</title>
+                        <action>sintax/adminhtml_myform</action>
+                    </disable_adminform>
+                </children>
+            </customer>
+        </menu>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <sintax_adminform>
+                                    <title>My Form</title>
+                                </sintax_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+       -->
+        <layout>
+            <updates>
+                <disable>
+                    <file>eezy_disable.xml</file>
+                </disable>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <blocks>
+            <customer>
+                <rewrite>
+                    <account_navigation>Eezy_Disable_Block_Customer_Account_Navigation</account_navigation>
+                </rewrite>
+            </customer>
+        </blocks>
+    </global>
+</config>

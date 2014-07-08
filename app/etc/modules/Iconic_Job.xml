@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Iconic_Job>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Iconic_Job>
+    </modules>
+    <global>
+   		<cms>
+   			<layouts>        
+	            <error module="page" translate="label">
+	                <label>404</label>
+	                <template>page/404.phtml</template>
+	                <layout_handle>page_error</layout_handle>
+	            </error>
+            </layouts>
+        </cms>
+    </global>
+</config>

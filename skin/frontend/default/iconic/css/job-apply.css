@@ -1,0 +1,128 @@
+#job-title{
+	padding: 0 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+#job-title > span{
+	margin: 0 8px;
+}
+form#form-apply input{
+	background-color: #fff;
+	color: #000;
+	font-weight: bold;
+}
+form#form-apply .row{
+	padding: 3px 20px;
+}
+.row textarea{
+	width: 95%;
+	height: 120px;
+}
+.row input[type="file"]{
+	width: 95%;
+}
+.row .btn{
+	border: none;
+	padding: 5px;
+	width: 130px;
+	font-size: 20px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+.row a.btn{
+	display: inline-block;
+	padding: 9px;
+	color: #fff;
+	text-decoration: none;
+}
+.row .files{
+	margin-top: 20px;
+}
+.row .files .file-uploaded > a.file-name{
+	color: #000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.row .files .file-uploaded  > a:hover{
+	color: #1197EC;
+}
+#fileupload:after {
+	content: "You can drag & drop file(s) here";
+	margin-left: 132px;
+	float: right;
+	font-style: italic;
+}
+#progress{
+	margin: 10px 0;
+	display: none;
+}
+#progress .bar{
+	height: 20px;
+	background-color: #1197EC;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+div#job-same-category{
+	height: 300px;
+	border: solid 4px #acdbf8;
+	border-radius: 8px;
+}
+div#job-same-category div.heading{
+	padding: 10px 20px 0px 20px;
+	background-color: #dcddde;
+}
+div#job-same-category div.heading h5{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 17px;
+	letter-spacing: -1px;
+}
+div#job-same-category ul.jobs-list{
+	list-style: none;
+	margin: 10px 0;
+	height: 210px;
+	overflow-y: auto;
+}
+div#job-same-category ul.jobs-list li{
+	padding: 10px 20px;
+}
+div#job-same-category ul.jobs-list li + li{
+	border-top: solid 1px #dcddde;
+}
+div#job-same-category ul.jobs-list li a{
+	display: block;
+	color: #000;
+	text-decoration: underline;
+	font-weight: bold;
+}
+div#job-same-category ul.jobs-list li span.created-time{
+	margin-right: 8px;
+}
+div#job-same-category a.view-more-category{
+	margin-left: 20px;
+	margin-top: 10px;
+	text-decoration: underline;
+}
+
+.apply-success-message{
+	display: block;
+	width: 500px;
+	height: 260px;
+	background: url('../images/apply-success-girl.png') left bottom no-repeat #e6e7e8;
+	border: solid 5px #f37021;
+	margin: 0 20px;
+}
+.apply-success-message .message{
+	color: #000;
+	width: 75%;
+	font-size: 27px;
+	float: right;
+	text-align: center;
+	margin-top: 21%;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.39);
+}
+.apply-success-message .message > p+p{
+	margin-top: 15px;
+}

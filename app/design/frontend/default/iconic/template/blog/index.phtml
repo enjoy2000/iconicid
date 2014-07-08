@@ -1,0 +1,13 @@
+<div id="blog-page" class="clearfix">
+	<div class="fll">
+		<div id="blog-category">
+			<?php echo $this->getChildHtml('category') ?>
+		</div>
+		<?php echo $this->getChildHtml('newest') ?>
+	</div>
+	<div class="blogs-wrap fll">
+		<div id="blogs-content">
+			<?php echo $this->getChildHtml('result') ?>
+		</div>
+	</div>
+</div>

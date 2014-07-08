@@ -1,0 +1,81 @@
+<?php $job = $this->getItem() ?>
+<?php $user = $this->getUser() ?>
+<div id="page-title">
+	<h2 class="blue-tit text-blue">
+		<?php echo $this->__('Ứng tuyển') ?>
+	</h2>
+</div>
+<div id="job-title" class="text-blue">
+	<?php echo Mage::helper('job')->renderTitle($job); ?>
+</div>
+<div class="form-apply width-60">
+	<form id="form-apply" action="<?php echo Mage::getBaseUrl() ?>job/apply/send" method="POST" >
+		<input type="hidden" name="id" value="<?php echo $job->getId() ?>" />
+		<div class="row clearfix">
+			<input class="fll width-40" name="name" type="text" value="<?php echo $user->getName() ?>" readonly="readonly"  />
+			<input class="flr width-40" name="email" type="text" value="<?php echo $user->getEmail() ?>" readonly="readonly"  />
+		</div>
+		<div class="row">
+			<textarea name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
+		</div>
+		<div class="row">
+			<input id="fileupload" type="file" name="files[]" data-url="<?php echo Mage::getBaseUrl() ?>job/apply/upload" multiple>
+			<div id="progress">
+			    <div class="bar" style="width: 0%;"></div>
+			</div>
+			<div class="files">
+				
+			</div>
+		</div>
+		<div class="row clearfix">
+			<button type="submit" name="submit" class="button-blue btn">
+				<?php echo $this->__('Gửi') ?>
+			</button>
+			<a class="btn button-grey back-button" href="<?php echo Mage::helper('job')->getJobLink($job) ?>">
+				<?php echo $this->__('Trở về') ?>
+			</a>
+		</div>
+	</form>
+</div>
+
+
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/vendor/jquery.ui.widget.js"></script>
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.iframe-transport.js"></script>
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.fileupload.js"></script>
+<script>
+(function($){
+	$(function () {
+	    $('#fileupload').fileupload({
+	        dataType: 'json',
+	        progressall: function (e, data) {
+		        var progress = parseInt(data.loaded / data.total * 100, 10);
+		        $('#progress').show();
+		        $('#progress .bar').text(progress + '%');
+		        $('#progress .bar').css(
+		            'width',
+		            progress + '%'
+		        );
+		    },
+	        done: function (e, data) {
+	        	$('#progress').hide();
+	            $.each(data.result.files, function (index, file) {
+	            	if(!file.error){
+	            		var btnText = '<?php echo $this->__('Xóa') ?>';
+	            		var element = '<div class="file-uploaded clearfix"><a title="'+file.name+'" target="_blank" href="'+file.url+'" class="file-name fll">'+file.name+'</a><a href="#" class="flr delete">'+btnText+'</a>';
+		            	element += '<input type="hidden" name="filenames[]" value="'+file.name+'" /></div>';
+		            	$('.row .files').append(element);            	
+		            	
+					    $('a.delete').click(function(e){
+					    	e.preventDefault();
+					    	$(this).parent().fadeOut().remove();
+					    });
+	                }else{
+	                	alert(file.error);
+	                }
+	            });
+	        }
+	    });
+	    
+	});
+})(jQuery);
+</script>

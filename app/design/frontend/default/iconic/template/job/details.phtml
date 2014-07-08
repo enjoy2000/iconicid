@@ -1,0 +1,121 @@
+<?php 
+$item = $this->getItem(); 
+$jobs = $this->getJobsInCategory();
+?>
+
+<!-- Page Title -->
+<div id="page-title">
+	<h1 class="blue-tit">
+		<?php echo Mage::helper('job')->renderTitle($item); ?>
+	</h1>
+</div>
+
+<div class="fll job-content width-60">
+	
+	<!-- Job Infomation -->
+	<div id="job-info">
+		<p class="text-blue tit">
+			<?php echo $this->__('Thông tin công việc:') ?>
+		<?php echo $item->getInfo() ?>
+		</p>
+	</div>
+	<!-- Job Requirement -->
+	<div id="job-requirement">
+		<p class="text-blue tit">
+			<?php echo $this->__('Yêu cầu công việc:') ?>
+		</p>
+		<?php echo $item->getRequirement() ?>
+	</div>
+	
+	<!-- Share -->
+	<div id="share" class="clearfix">
+		<div class="addthis_toolbox addthis_default_style addthis_32x32_style flr">
+			<a class="addthis_button_facebook"></a>
+			<a class="addthis_button_linkedin"></a>
+			<a class="addthis_button_google_plusone_share"></a>
+			<a class="addthis_button_twitter"></a>
+		</div>
+		<img class="flr" src="<?php echo $this->getSkinUrl('images/share-text.png') ?>" alt="Chia sẻ cơ hội việc làm này" />
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-528575d340ba8794"></script>
+	</div>
+	<!-- End share -->
+	<hr />
+	<!-- Job Actions -->
+	<div id="job-actions">
+		<a class="btn button-blue btn-send" href="<?php echo Mage::helper('job')->getApplyLink($item->getId()) ?>"><?php echo $this->__('Ứng tuyển') ?></a>
+		<a class="btn button-grey btn-back" href="#"><?php echo $this->__('Trở về') ?></a>
+	</div>
+</div>
+
+<div class="flr job-details-right width-30">
+	
+	<!-- Job Details -->
+	<div class="job-details">
+		<p class="first">
+			<span><?php echo $this->__('Ngày đăng:') ?></span>
+			<?php echo Mage::helper('job')->formatDate($item->getCreatedTime()) ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Ngành nghề:') ?></span>
+			<?php echo $this->getCategory()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Chức năng:') ?></span>
+			<?php echo $this->getFunctionCategory()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Địa điểm làm việc:') ?></span>
+			<?php echo $this->getLocation()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Cấp độ công việc:') ?></span>
+			<?php echo $this->getLevel()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Lương:') ?></span>
+			<?php
+			if($item->getJobSalary() == 0){
+				echo $this->__('Thương lượng');
+			}else{
+				echo $item->getJobSalary();
+				if($item->getJobSalaryTo()){
+					echo ' - ' . $item->getJobSalaryTo();
+				}
+				echo ' '.$item->getJobSalaryCurrency().' ('.$item->getJobSalaryType().')';
+			}
+			?>
+		</p>
+		<p class="last">
+			<span><?php echo $this->__('Loại hình:') ?></span>
+			<?php echo $this->getType()->getName() ?>
+		</p>
+	</div>
+	
+	<?php if($jobs->count() > 0): ?>
+	<!-- Jobs Same Category -->
+	<div id="job-same-category">
+		<div class="heading">
+			<h5 class="blue-tit text-blue"><?php echo $this->__('Các công việc cùng ngành nghề') ?></h5>
+		</div>
+		<ul class="jobs-list">
+		<?php foreach($jobs as $job): ?>
+			<li>
+				<?php echo Mage::helper('job')->renderJob($job) ?>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+		<a class="text-blue view-more-category" href="<?php echo Mage::helper('job')->getCategoryUrl($item->getCategoryId()); ?>"><?php echo $this->__('Xem thêm') ?></a>
+	</div>
+	<?php endif; ?>
+</div>
+<script>
+(function($){
+	$(document).ready(function(){
+	    $('a.btn-back').click(function(){
+	        parent.history.back();
+	        return false;
+	    });
+	});
+})(jQuery);
+</script>

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+    <layout>
+        <updates>
+            <job>
+                <file>job.xml</file>
+            </job>
+        </updates>
+    </layout>
+    <translate>
+        <modules>
+            <translations>
+                <files>
+                    <default>Iconic_Job.csv</default>
+                </files>
+            </translations>
+        </modules>
+    </translate>
+    <menu>
+        <job module="job">
+            <title>Iconic</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <jobs module="job">
+                    <title>Manage Jobs</title>
+                    <sort_order>2</sort_order>
+                    <action>adminhtml/job_job</action>
+                </jobs>
+                <categories module="job">
+                    <title>Manage Categories</title>
+                    <sort_order>2</sort_order>
+                        <children>
+                            <sub module="job">
+                                <title>Sub Categories</title>
+                                <sort_order>1</sort_order>
+                                <action>adminhtml/job_category</action>
+                            </sub>
+                            <parent module="job">
+                                <title>Parent Categories</title>
+                                <sort_order>2</sort_order>
+                                <action>adminhtml/job_parentcategory</action>
+                            </parent>
+                        </children>
+                </categories>
+                <location module="job">
+                    <title>Manage Location</title>
+                    <sort_order>3</sort_order>
+                    <action>adminhtml/job_location</action>
+                </location>
+                <level module="job">
+                    <title>Manage Job Level</title>
+                    <sort_order>4</sort_order>
+                    <action>adminhtml/job_level</action>
+                </level>
+                <type module="job">
+                    <title>Manage Job Type</title>
+                    <sort_order>5</sort_order>
+                    <action>adminhtml/job_type</action>
+                </type>
+                <feature module="job">
+                    <title>Manage Feature Tags</title>
+                    <sort_order>6</sort_order>
+                    <action>adminhtml/job_feature</action>
+                </feature>
+            </children>
+        </job>
+        <customer translate="title" module="customer">
+            <title>Candidates</title>
+            <sort_order>40</sort_order>
+            <!-- action>adminhtml/customer/</action -->
+            <children>
+                <manage translate="title" module="customer">
+                    <title>Manage Candidates</title>
+                    <action>adminhtml/customer/</action>
+                    <sort_order>0</sort_order>
+                </manage>
+                <group translate="title" module="customer">
+                    <title>Candidate Groups</title>
+                    <action>adminhtml/customer_group/</action>
+                    <sort_order>10</sort_order>
+                </group>
+                <online translate="title" module="customer">
+                    <title>Online Candidates</title>
+                    <action>adminhtml/customer_online/</action>
+                    <sort_order>100</sort_order>
+                </online>
+            </children>
+         </customer>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <job>
+                        <title>Job Module</title>
+                        <sort_order>200</sort_order>
+                    </job>
+                </children>
+            </admin>
+        </resources>   
+    </acl>
+    <layout>
+        <updates>
+            <job>
+                <file>job.xml</file>
+            </job>
+        </updates>
+    </layout>
+</config>

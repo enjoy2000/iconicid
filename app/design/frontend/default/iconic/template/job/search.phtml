@@ -1,0 +1,224 @@
+<div id="search-block" class="clearfix">
+	<form action="/job/search/searchform" method="get">
+		<input name="q" class="width-80" id="keyword"
+			value="<?php echo $this->getKeyword();?>"
+			placeholder="<?php echo $this->__('Nhập chức danh, ngành nghề, từ khóa...') ?>" />
+		<br class="clear"/>
+		<select name="category" id="category" class="inline">
+			<option value=""><?php echo $this->__('Ngành nghề') ?></option>
+			<?php echo $this->getCategoryList() ?>
+		</select>
+		
+		<select name="function_category" id="function-category" class="inline">
+			<option value=""><?php echo $this->__('Chức năng') ?></option>
+			<?php echo $this->getFunctionList() ?>
+		</select>
+		
+		<select name="location" id="location" class="inline">
+			<option value=""><?php echo $this->__('Địa điểm') ?></option>
+			<?php echo $this->getLocationList() ?>			
+		</select>
+		
+		<button id="search-btn" name"submit" type="submit" class="flr inline btn btn-orange"><?php echo $this->__('Tìm kiếm') ?></button>		
+	</form>
+</div>
+<div id="feature-tags" class="clearfix">
+	<div class="fll">
+		<?php echo $this->__('Feature tags') ?>:
+	</div>
+	<div class="flr">
+		<?php foreach($this->getFeatureTags() as $feature): ?>
+			<a href="<?php echo $feature->getUrl() ?>" title="<?php echo $feature->getName() ?>">
+				<?php echo $feature->getName() ?>
+			</a>
+			<?php echo ($this->getFeatureTags()->getLastItem()->getId() != $feature->getId()) ? '<span>|</span>' : '' ?>
+		<?php endforeach; ?>
+	</div>
+</div>
+
+<?php if(Mage::getSingleton('cms/page')->getIdentifier() != 'home'): ?>
+<div id="search_results" class="clearfix">
+	<div id="page-title" class="heading">
+		<h1 class="blue-tit text-blue"><?php echo $this->__('Kết Quả Tìm Kiếm Việc Làm %s', $this->getTit()) ?></h1>
+	</div>
+	<div class="info-search">
+		<?php if($this->getKeyword()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Từ khóa') ?>:
+			<span><?php echo $this->getKeyword() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<?php if($this->hasCategory()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Ngành nghề') ?>:
+			<span><?php echo Mage::getModel('job/category')->load($this->getCategory())->getName() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<?php if($this->hasLocation()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Địa điểm') ?>:
+			<span><?php echo Mage::getModel('job/location')->load($this->getLocation())->getName() ?></span>
+		</div>
+		<?php endif; ?>		
+		
+		<?php if($this->hasJobLevel()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Đối tượng') ?>:
+			<span><?php echo Mage::getModel('job/level')->load($this->getJobLevel())->getName() ?></span>
+		</div>
+		<?php endif; ?>		
+		
+		<?php if($this->hasIndustry()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Ngành nghề') ?>:
+			<span><?php echo Mage::getModel('job/parentcategory')->load($this->getIndustry())->getName() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<?php if($this->hasFunction()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Chức năng') ?>:
+			<span><?php echo Mage::getModel('job/parentcategory')->load($this->getFunction())->getName() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<?php if($this->hasFunctionCategory()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Chức năng') ?>:
+			<span><?php echo Mage::getModel('job/category')->load($this->getFunctionCategory())->getName() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<p>
+			<?php echo $this->__('Hiển thị <span>%s</span> việc làm', $this->getResults()->count()) ?>
+		</p>
+	</div>
+	<div class="results fll width-65">
+		<?php if($this->getResults()->count() > 0): ?>
+			<script>
+				jQuery(document).ready(function(){
+					jQuery('.info-search > p').html(jQuery('.pager .amount'));
+				});
+			</script>
+			<div class="content">
+				<?php $col = $this->getResults()->setPageSize(12)->load(); ?>
+			<?php foreach($col as $job): ?>
+				<div class="job clearfix">
+					<div class="fll width-60">
+						<a class="title" href="<?php echo Mage::helper('job')->getJobLink($job) ?>" title="<?php echo $job->getTitle() ?>">
+							<?php if($this->getKeyword()): ?>
+								<?php echo Mage::helper('job')->highlight(Mage::helper('job')->string_limit_words($job->getTitle()), explode(' ',$this->getKeyword())) ?>
+							<?php else: ?>
+								<?php echo $job->getTitle() ?>
+							<?php endif; ?>
+						</a>
+						<span>
+							<?php echo $this->__('Ngành nghề') ?>:
+							<u class="text-blue underline">
+								<a href="<?php echo $job->getCategory()->getUrl() ?>" title="<?php echo $job->getCategory()->getName() ?>">
+									<?php echo $job->getCategory()->getName() ?>
+								</a>
+							</u>
+						</span>
+					</div>
+					<div class="location fll width-20">
+						<?php echo Mage::getModel('job/location')->load($job->getLocationId())->getName() ?>
+					</div>
+					<div class="time flr width-20">
+						<?php echo Mage::helper('job')->formatDate($job->getCreatedTime()) ?>
+					</div>
+				</div>
+			<?php endforeach; ?>
+			</div>
+			<?php
+				echo $this->getPagerHtml();
+			?>
+		<?php else: ?>
+			<div class="no-results clearfix">
+				<img class="fll" src="<?php echo $this->getSkinUrl('images/no-results.png') ?>" alt="" />
+				<span class="fll text"><?php echo $this->__('Không tìm thấy việc làm phù hợp. Bạn vui lòng thử lại.') ?></span>
+			</div>
+		<?php endif; ?>
+	</div>
+	
+	<div class="flr width-30 search-filters">
+		<div class="heading">
+			<h4 class="blue-tit text-blue"><?php echo $this->__('Ngành nghề') ?></h4>
+		</div>	
+		<div class="filter industry-category">
+			<h4><?php echo $this->__('Tìm việc theo ngành nghề') ?></h4>
+			<?php 
+				$industryCategory = Mage::getModel('job/parentcategory')->getCollection();
+				$industryCategory->addFieldToFilter('group_category', array('eq'=>'industry'));
+				foreach($industryCategory as $parent):
+			?>
+				<div class="parent has-child">
+					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
+						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
+					</a>
+					<?php 
+					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
+					if(count($subs) > 0):
+					?>
+						<ul>
+						<?php foreach($subs as $sub): ?>						
+							<li>
+								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
+									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
+								</a>
+							</li>
+						<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		
+		<div class="filter function-category">
+			<h4><?php echo $this->__('Tìm việc theo chức năng') ?></h4>
+			<?php 
+				$functionCategory = Mage::getModel('job/parentcategory')->getCollection();
+				$functionCategory->addFieldToFilter('group_category', array('eq'=>'function'));
+				foreach($functionCategory as $parent):
+			?>
+				<div class="parent has-child">
+					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
+						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
+					</a>
+					<?php 
+					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
+					if(count($subs) > 0):
+					?>
+						<ul>
+						<?php foreach($subs as $sub): ?>						
+							<li>
+								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
+									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
+								</a>
+							</li>
+						<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+		
+		<div class="filter job-level">
+			<h4><?php echo $this->__('Tìm việc theo đối tượng') ?></h4>
+			<?php $levels = Mage::getModel('job/level')->getCollection(); ?>
+			<?php foreach($levels as $lv): ?>
+				<a class="filter-item" href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
+					<?php echo $lv->getName() ?> <span>(<?php echo $lv->getCount() ?>)</span>
+				</a>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+	<?php //if($this->hasFilters()): ?>
+		<?php //foreach($this->getFilters() as $filter): ?>
+			<?php //echo $filter->toHtml(); ?>
+		<?php //endforeach; ?>
+	<?php //endif; ?>

@@ -1,0 +1,21 @@
+<?php $items = $this->getCategories() ?>
+<?php if (count($items)): ?>
+<div class="block news-categories list-cat">
+    <div class="head block-title">
+        <strong><span class="blue-tit text-blue"><?php echo $this->__('Chuyên mục blog');?></span></strong>
+    </div>
+    <div class="block-content">
+        <div class="menu-categories">
+            <ul>
+                <?php $i =1; foreach ($items as $item): ?>
+                    <li <?php if($i == count($items)){echo 'class="last"';} ?>>
+                    	<a href="<?php echo $item->getUrl() ?>" title="<?php echo $item->getTitle() ?>">
+                    		<?php echo $item->getTitle() ?>
+                    	</a>
+	                </li>
+                <?php $i++; endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

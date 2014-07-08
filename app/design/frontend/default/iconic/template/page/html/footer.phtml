@@ -1,0 +1,145 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div style="display: none;" id="gioi-thieu">
+	<div class="wrapper">
+		<div class="content">
+			<h2 class="black-tit"><?php echo $this->__('Lĩnh vực hoạt động') ?></h2>
+			<div class="clearfix">
+				<div class="fll width-35 tuvan">
+					<h4 class"text-blue">
+						<?php echo $this->__('Tư vấn nhân sự') ?>
+					</h4>
+					<ul>
+						<li><?php echo $this->__('Giới thiệu nhân sự') ?></li>
+						<li><?php echo $this->__('Cung cấp thông dịch viên tiếng Nhật') ?></li>
+					</ul>
+				</div>
+				<div class="flr width-35 hotro">
+					<h4 class"text-blue">
+						<?php echo $this->__('Hỗ trợ thương mại') ?>
+					</h4>
+					<ul>
+						<li><?php echo $this->__('Tư vấn và hỗ trợ quản lý nghiệp vụ nhân sự') ?></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer id="footer">
+	<!-- SLOGAN -->
+	<div id="slogan">
+		<div class="wrapper">
+			<h2><?php echo $this->__('KHI BẠN ĐĂNG KÝ TÀI KHOẢN TRÊN ICONIC, BẠN SẼ ĐƯỢC <span>TƯ VẤN BỞI CÁC CHUYÊN VIÊN CỦA CHÚNG TÔI</span><br />
+				CŨNG NHƯ NHẬN ĐƯỢC CÁC THÔNG TIN VỀ VIỆC LÀM <span>HOÀN TOÀN MIỄN PHÍ</span>') ?>
+			</h2>
+		</div>
+	</div>
+	
+	<!-- CONTACT INFORMAPTION -->
+    <div id="contact-information">
+    	<div class="wrapper clearfix">
+    		<div id="map" class="flr">
+    			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7838.503953205817!2d106.69885744999999!3d10.792003150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f34c5c75e43%3A0xd22addcca3b456ed!2sICONIC+co.%2C+ltd!5e0!3m2!1sen!2s!4v1389607551898&iwloc=near" width="350" height="200" frameborder="0" style="border:0"></iframe>
+    		</div>
+    		<div id="address" class="flr">
+    			<div class="hcm clearfix">
+    				<?php
+    				echo $this->__('<strong>Chi Nhánh Hồ Chí Minh:</strong><br />
+							Tầng 4 Avenis Building, 145 Điện Biên Phủ, Quận 1, Hồ Chí Minh<br />
+							Phone: (84-8) 3821-5122');
+    				?>
+    			</div>
+    			<div class="hn clearfix">
+    				<?php
+    				echo $this->__('<strong>Chi Nhánh Hà Nội:</strong><br />
+							Phòng 901, Tòa nhà Ford Thăng Long, 105 Láng Hạ, Đống Đa, <br />Hà Nội<br />
+							Phone: (84-4) 3776-5963');
+    				?>
+    			</div>
+    		</div>
+    		<div id="contact-form" class="fll">
+    			<h4 class="black-tit heading">
+    				<?php echo $this->__('Gửi email cho chúng tôi') ?>
+    			</h4>
+    			
+    			<!-- FORM -->
+    			<form id="contact-us">
+    				<div class="row clearfix">
+	    				<input class="fll width-45" required id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
+	    				<input class="flr width-45" required id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
+    				</div>
+    				<textarea required id="message" name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
+    				<div id="response" class="fll width-60">
+    					
+    				</div>
+    				<button id="submit" class="btn flr btn-blue" name="submit" type="submit"><?php echo $this->__('Gửi') ?></button>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+    
+    <!-- Other websites -->
+    <div id="other-web">
+    	<div class="wrapper">
+    		<span class="top">
+    			<?php echo $this->__('CÁC WEBSITE KHÁC CỦA ICONIC:') ?>
+    		</span>
+    		<a title="<?php echo $this->__('Dành cho người Nhật tại Việt Nam') ?>" target="_blank" href="http://www.iconic-intl.com">
+    			www.iconic-intl.com
+    		</a>
+    		<?php echo $this->__('Dành cho người Nhật tại Việt Nam') ?>
+    		<span class="line">|</span>
+    		<a title="<?php echo $this->__('(Dành cho người Việt tại Nhật Bản)') ?>" target="_blank" href="http://www.iconic-jp.com">
+    			www.iconic-jp.com
+    		</a>
+    		<?php echo $this->__('(Dành cho người Việt tại Nhật Bản)') ?>
+    		<span class="line">|</span>
+    		<a title="<?php echo $this->__('Indonesia') ?>" target="_blank" href="http://www.iconic-id.com">
+    			www.iconic-id.com
+    		</a>
+    		<?php echo $this->__('(Indonesia)') ?>
+    	</div>
+    </div>
+    
+    <!-- COPYRIGHT -->
+    <div id="copyright">
+    	<div class="wrapper clearfix">
+    		<div class="fll">
+    			<a class="sitemap" href="/so-do-trang" title="<?php echo $this->__('Sơ đồ trang') ?>"><?php echo $this->__('Sơ đồ trang') ?></a>
+    			<span class="line">|</span>
+    			<a class="privacy" href="/chinh-sach-bao-mat" title="<?php echo $this->__('Chính sách bảo mật') ?>"><?php echo $this->__('Chính sách bảo mật') ?></a>
+    			<p><?php echo $this->__('Copyright © 2008-2014 ICONIC CO.,LTD · All Rights Reserved.') ?></p>
+    		</div>
+			<div class="social-links flr">   				
+				<a title="Instagram" class="in" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>    	
+				<a title="Facebook" class="facebook" href="https://www.facebook.com/iconic4vn">&nbsp;</a>  				
+				<a title="Google+" class="google" href="https://plus.google.com/u/0/b/112764902169096553590/112764902169096553590/">&nbsp;</a>
+			</div>
+    	</div>
+    </div>
+</footer>

@@ -1,0 +1,36 @@
+<?php if ($this->getBlogs()->count()): ?>
+<div class="block news-categories">
+    <div class="head block-title">
+        <strong><span class="blue-tit text-blue"><?php echo $this->__('Bài viết mới nhất');?></span></strong>
+    </div>
+    <div class="block-content">
+        <div class="menu-categories">
+            <ul>
+                <?php foreach ($this->getBlogs() as $item): ?>
+                	<?php $author = Mage::getModel('blog/author')->load($item->getAuthorId()) ?>
+                    <li class="clearfix">
+                    	<div class="item-img fll">
+                    		<img src="/media/resized/<?php echo $item->getPhoto() ?>" alt="" width="40" height="40" />
+                    	</div>
+                        <div class="item-content flr">
+	                        <a title="<?php echo $item->getTitle() ?>" class="width-100" href="<?php echo $item->getUrl() ?>" >
+	                        	<?php echo $item->getTitle() ?>
+	                        </a>
+	                        <br />
+	                        <div class="inline date">
+                        		<?php echo Mage::helper('blog')->formatDate($item->getCreateTime()) ?>
+                        	</div>
+                        	|
+                        	<div class="inline author">
+                        		<a href="<?php echo $author->getLink() ?>" title="<?php echo $author->getName() ?>">
+                        			<?php echo $author->getName() ?>
+                        		</a>
+                        	</div>
+	                	</div>
+	                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

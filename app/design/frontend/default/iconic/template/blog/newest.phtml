@@ -1,0 +1,87 @@
+<div id="newest-blog">
+	<!-- Tab Control -->
+	<div id="blog-control" class="clearfix">
+		<div data-tab="new" class="tab fll first new active">
+			<span><?php echo $this->__('Newest') ?></span>
+		</div>
+		<div data-tab="popular" class="tab flr popular">
+			<span><?php echo $this->__('Popular') ?></span>
+		</div>
+	</div>
+	
+	<!-- Tab Content -->
+	<div id="blog-content">
+		<!-- Content for category -->
+		<div id="blog-tab-new" class="tab-content new">
+			<ul>
+				<?php foreach($this->getNewest() as $blog): ?>
+					<?php $author = Mage::getModel('blog/author')->load($blog->getAuthorId()) ?>
+				<li class="clearfix">
+					<img width="52" height="52" class="fll" alt="" src="/media/resized/<?php echo $blog->getPhoto() ?>" />
+					<div class="fll">
+						<h6>
+							<a href="<?php echo $blog->getUrl() ?>" title="<?php echo $blog->getTitle() ?>">
+								<?php echo $blog->getTitle() ?>
+							</a>
+						</h6>
+						<div class="inline date"><?php echo $blog->getDate() ?></div>
+						|
+						<div class="inline author"><a  href="<?php echo $author->getLink() ?>"><?php echo $author->getName() ?></a></div>
+						<br class="clear" />
+						<?php $parents = $blog->getParentCats()->addFieldToFilter('url_key', array('neq'=>'country-information-in-asia')) ?>
+						<?php foreach($parents as $parent): ?>
+							<a class="<?php echo $parent->getUrlKey() ?>" href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>">
+								<?php echo $parent->getName() ?>
+							</a>
+							<?php echo ($parent->getId() != $blog->getParentCats()->getLastItem()->getId()) ? '|' : '' ?>
+						<?php endforeach; ?>
+					</div>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+			
+		<!-- Content for Function Tab -->
+		<div style="display: none;" id="blog-tab-popular" class="tab-content popular">
+			<ul>
+				<?php foreach($this->getPopular() as $blog): ?>
+					<?php $author = Mage::getModel('blog/author')->load($blog->getAuthorId()) ?>
+				<li class="clearfix">
+					<img width="52" height="52" class="fll" alt="" src="/media/resized/<?php echo $blog->getPhoto() ?>" />
+					<div class="fll">
+						<h6>
+							<a href="<?php echo $blog->getUrl() ?>" title="<?php echo $blog->getTitle() ?>">
+								<?php echo $blog->getTitle() ?>
+							</a>
+						</h6>
+						<div class="inline date"><?php echo $blog->getDate() ?></div>
+						|
+						<div class="inline author"><a  href="<?php echo $author->getLink() ?>"><?php echo $author->getName() ?></a></div>
+						<br class="clear" />
+						<?php $parents = $blog->getParentCats()->addFieldToFilter('url_key', array('neq'=>'country-information-in-asia')) ?>
+						<?php foreach($parents as $parent): ?>
+							<a class="<?php echo $parent->getUrlKey() ?>" href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>">
+								<?php echo $parent->getName() ?>
+							</a>
+							<?php echo ($parent->getId() != $blog->getParentCats()->getLastItem()->getId()) ? '|' : '' ?>
+						<?php endforeach; ?>
+					</div>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+(function($){
+	$(document).ready(function(){
+		$('#blog-control .tab').click(function(e){
+			e.preventDefault();
+			$('.tab').removeClass('active');
+			$(this).addClass('active');
+			$('.tab-content').fadeOut(200);
+			$('.tab-content.'+$(this).data('tab')).fadeIn(200);
+		});
+	});
+})(jQuery)
+</script>
