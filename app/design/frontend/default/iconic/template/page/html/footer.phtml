@@ -27,23 +27,24 @@
 <div style="display: none;" id="gioi-thieu">
 	<div class="wrapper">
 		<div class="content">
-			<h2 class="black-tit"><?php echo $this->__('Lĩnh vực hoạt động') ?></h2>
+			<h2 class="black-tit"><?php echo $this->__('Business Summary') ?></h2>
 			<div class="clearfix">
 				<div class="fll width-35 tuvan">
 					<h4 class"text-blue">
-						<?php echo $this->__('Tư vấn nhân sự') ?>
+						<?php echo $this->__('HR Related Services') ?>
 					</h4>
 					<ul>
-						<li><?php echo $this->__('Giới thiệu nhân sự') ?></li>
-						<li><?php echo $this->__('Cung cấp thông dịch viên tiếng Nhật') ?></li>
+						<li><?php echo $this->__('Job Information Providing Service in Indonesia') ?></li>
+						<li><?php echo $this->__('Career Counseling/ Recruiting Service in Indonesia') ?></li>
+						<li><?php echo $this->__('Dispatching Service of Indonesian Translator') ?></li>
 					</ul>
 				</div>
 				<div class="flr width-35 hotro">
 					<h4 class"text-blue">
-						<?php echo $this->__('Hỗ trợ thương mại') ?>
+						<?php echo $this->__('Buiness support') ?>
 					</h4>
 					<ul>
-						<li><?php echo $this->__('Tư vấn và hỗ trợ quản lý nghiệp vụ nhân sự') ?></li>
+						<li><?php echo $this->__('Consult and support to manage HR') ?></li>
 					</ul>
 				</div>
 			</div>
@@ -109,10 +110,10 @@
     		</a>
     		<?php echo $this->__('(Dành cho người Việt tại Nhật Bản)') ?>
     		<span class="line">|</span>
-    		<a title="<?php echo $this->__('Indonesia') ?>" target="_blank" href="http://www.iconic-id.com">
-    			www.iconic-id.com
+    		<a title="<?php echo $this->__('Việt Nam') ?>" target="_blank" href="http://iconicvn.com">
+    			www.iconicvn.com
     		</a>
-    		<?php echo $this->__('(Indonesia)') ?>
+    		(<?php echo $this->__('Việt Nam') ?>)
     	</div>
     </div>
     
@@ -120,9 +121,9 @@
     <div id="copyright">
     	<div class="wrapper clearfix">
     		<div class="fll">
-    			<a class="sitemap" href="/so-do-trang" title="<?php echo $this->__('Sơ đồ trang') ?>"><?php echo $this->__('Sơ đồ trang') ?></a>
+    			<a class="sitemap" href="<?php echo Mage::helper('job')->getBaseUrl() ?>sitemap" title="<?php echo $this->__('Sơ đồ trang') ?>"><?php echo $this->__('Sơ đồ trang') ?></a>
     			<span class="line">|</span>
-    			<a class="privacy" href="/chinh-sach-bao-mat" title="<?php echo $this->__('Chính sách bảo mật') ?>"><?php echo $this->__('Chính sách bảo mật') ?></a>
+    			<a class="privacy" href="<?php echo Mage::helper('job')->getBaseUrl() ?>privacy-policy" title="<?php echo $this->__('Chính sách bảo mật') ?>"><?php echo $this->__('Chính sách bảo mật') ?></a>
     			<p><?php echo $this->__('Copyright © 2008-2014 ICONIC CO.,LTD · All Rights Reserved.') ?></p>
     		</div>
 			<div class="social-links flr">   				

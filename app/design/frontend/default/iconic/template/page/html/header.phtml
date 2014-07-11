@@ -45,7 +45,7 @@
 		<div class="wrapper clearfix">
 			<!-- Logo -->
 			<div id="logo" class="fll">
-				<a title="Iconic" href="/">
+				<a title="Iconic" href="<?php echo Mage::helper('job')->getBaseUrl() ?>">
 					<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
 				</a>
 			</div><!-- End Logo -->
@@ -54,19 +54,19 @@
 			<div id="menu" class="flr">
 				<ul>
 					<li class="<?php echo strpos($bodyclass, 'cms-index-index') ? 'current-menu-item' : ''  ?>">
-						<a href="/"><?php echo $this->__('Home') ?></a>
+						<a href="<?php echo Mage::helper('job')->getBaseUrl() ?>"><?php echo $this->__('Home') ?></a>
 					</li>
-					<li class="<?php echo strpos($bodyclass, 'cms-nguoi-tim-viec') ? 'current-menu-item' : ''  ?>">
-						<a href="/nguoi-tim-viec"><?php echo $this->__('Người tìm việc') ?></a>
+					<li class="<?php echo strpos($bodyclass, 'cms-for-job-seekers') ? 'current-menu-item' : ''  ?>">
+						<a href="<?php echo Mage::helper('job')->getBaseUrl() ?>for-job-seekers"><?php echo $this->__('Người tìm việc') ?></a>
 					</li>
-					<li class="<?php echo strpos($bodyclass, 'cms-nha-tuyen-dung') ? 'current-menu-item' : ''  ?>">
-						<a href="/nha-tuyen-dung"><?php echo $this->__('Nhà tuyển dụng') ?></a>
+					<li class="<?php echo strpos($bodyclass, 'cms-for-employer') ? 'current-menu-item' : ''  ?>">
+						<a href="<?php echo Mage::helper('job')->getBaseUrl() ?>for-employer"><?php echo $this->__('Nhà tuyển dụng') ?></a>
 					</li>
 					<li class="<?php echo strpos($bodyclass, 'blog') ? 'current-menu-item' : ''  ?>">
-						<a href="/blog"><?php echo $this->__('Blog') ?></a>
+						<a href="<?php echo Mage::helper('job')->getBaseUrl() ?>blog"><?php echo $this->__('Blog') ?></a>
 					</li>
-					<li class="<?php echo strpos($bodyclass, 'cms-profil-perusahaan') ? 'current-menu-item' : ''  ?>">
-						<a href="/company-profile"><?php echo $this->__('Giới thiệu công ty') ?></a>
+					<li class="<?php echo strpos($bodyclass, 'cms-company-profile') ? 'current-menu-item' : ''  ?>">
+						<a href="<?php echo Mage::helper('job')->getBaseUrl() ?>company-profile"><?php echo $this->__('Giới thiệu công ty') ?></a>
 					</li>
 				</ul>
 			</div><!-- End Menu -->
@@ -74,10 +74,10 @@
 			<!-- Begin Top Social Icons -->
 			<div class="top-social">
 				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="/<?php echo Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
+					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
 				<?php else: ?>
 					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
-					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
+					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getCreateCVUrl() ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
 					<?php endif; ?>
 				<?php endif; ?>
 				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>

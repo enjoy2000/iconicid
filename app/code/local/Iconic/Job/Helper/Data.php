@@ -151,27 +151,27 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function getLoginUrl(){
-		return 'dang-nhap';
+		return 'login';
 	}
 	
 	public function getRegisterUrl(){
-		return 'dang-ky';
+		return 'register';
 	}
 	
 	public function getSearchUrl(){
-		return 'tim-viec-lam';
+		return 'search-job';
 	}
 	
 	public function getForgotUrl(){
-		return 'quen-mat-khau';
+		return 'forgot-password';
 	}
 	
 	public function getCreateCVUrl(){
-		return 'tao-ho-so';
+		return 'submit-cv';
 	}
 
 	public function getSitemapUrl(){
-		return 'so-do-trang';
+		return 'sitemap';
 	}
 	
 	public function limitText($str, $limit=58){
@@ -205,6 +205,11 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 		$objWriter->save($fileName);
+	}
+
+	public function getBaseUrl(){
+		$store = Mage::app()->getStore();
+		return ($store->getCode() == 'default') ? Mage::getBaseUrl() : Mage::getBaseUrl().'en/';
 	}
 }
 	

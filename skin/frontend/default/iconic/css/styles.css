@@ -745,7 +745,7 @@ div.nha-tuyen-dung img.quanly{
 /*
 	GIOI THIEU CONG TY
 */
-body.cms-gioi-thieu-cong-ty #gioi-thieu{
+body.cms-company-profile #gioi-thieu{
 	display: block!important;
 }
 #gioi-thieu{
@@ -864,7 +864,7 @@ div.gioi-thieu-cong-ty .content .quote-text .first-text:after{
 	width: 0;
 	height: 0;
 	position:absolute;
-	top: 28px;
+	bottom: -20px;
 	left: 230px;
 }
 
