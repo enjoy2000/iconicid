@@ -35,37 +35,37 @@
     	<div class="row row2 clearfix">
     		<input readonly type="text" id="sex" class="first select" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
     		<select name="nation" id="nation" class="last">
-    			<option value="">Quốc tịch</option>
-    			<option value="Việt Nam">Việt Nam</option>
-    			<option value="Nước ngoài">Nước ngoài</option>
+    			<option value=""><?php echo $this->__('Quốc tịch') ?></option>
+    			<option value="<?php echo $this->__('Việt Nam') ?>"><?php echo $this->__('Việt Nam') ?></option>
+    			<option value="<?php echo $this->__('Nước ngoài') ?>"><?php echo $this->__('Nước ngoài') ?></option>
     		</select>
     	</div>
     	
     	<div class="row row1">
-    		<input type="text" name="address" id="address" placeholder="Địa chỉ cư trú" />
+    		<input type="text" name="address" id="address" placeholder="<?php echo $this->__('Địa chỉ cư trú') ?>" />
     	</div>
     	
     	<div class="row row2">
     		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
     		
     		<select name="country" id="country" class="last">
-    			<option value="">Quốc gia</option>
-    			<option value="Việt Nam">Việt Nam</option>
-    			<option value="Malaysia">Malaysia</option>
-    			<option value="Nhật Bản">Nhật Bản</option>
+    			<option value=""><?php echo $this->__('Quốc gia') ?></option>
+    			<option value="<?php echo $this->__('Việt Nam') ?>"><?php echo $this->__('Việt Nam') ?></option>
+    			<option value="<?php echo $this->__('Malaysia') ?>"><?php echo $this->__('Malaysia') ?></option>
+    			<option value="<?php echo $this->__('Nhật Bản') ?>"><?php echo $this->__('Nhật Bản') ?></option>
     		</select>
     	</div>
     	
     	<div class="row row2">
     		<span class="re">*</span>
-    		<input required type="number" class="first" name="phone" id="phone" placeholder="Di động*" />
+    		<input required type="number" class="first" name="phone" id="phone" placeholder="<?php echo $this->__('Di động*') ?>" />
     		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email*" value="<?php echo $this->getCustomer()->getEmail() ?>" />
     	</div>
     	
     	<div class="row row3">
-    		<input type="number" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
+    		<input type="number" class="first" name="salary" id="salary" placeholder="<?php echo $this->__('Mức lương hiện tại') ?>" />
     		<select class="mid" name="currency" id="currency">
-    			<option value="">Tiền tệ</option>
+    			<option value=""><?php echo $this->__('Tiền tệ') ?></option>
     			<option value="USD">USD</option>
     			<option value="VND">VND</option>
     		</select>
@@ -77,13 +77,13 @@
     	</div>
     	
     	<div class="row heading">
-    		<span>Công việc mong muốn</span>
+    		<span><?php echo $this->__('Công việc mong muốn') ?></span>
     	</div>
     	
     	<div class="row row3">
-    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn*" />
+    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="<?php echo $this->__('Mức lương mong muốn') ?>*" />
     		<select required class="mid" name="currency2" id="currency2">
-    			<option value="">Tiền tệ</option>
+    			<option value=""><?php echo $this->__('Tiền tệ') ?></option>
     			<option value="USD">USD</option>
     			<option value="VND">VND</option>
     		</select>
@@ -98,57 +98,57 @@
     		<span class="re">*</span>
     		<span class="re re2">*</span>
     		<select required class="first" name="category" id="category">
-    			<option value="">Ngành nghề</option>
+    			<option value=""><?php echo $this->__('Ngành nghề') ?></option>
 				<?php echo $this->getCategoryList($data['category']) ?>
     		</select>
     		<select required class="last" name="function" id="function">
-    			<option value="">Chức năng</option>
+    			<option value=""><?php echo $this->__('Chức năng') ?></option>
 				<?php echo $this->getFunctionList($data['function']) ?>
     		</select>
     	</div>
     	
     	<div class="row row2">
     		<select class="first" name="location2" id="location2">
-    			<option value="">Địa điểm</option>
+    			<option value=""><?php echo $this->__('Địa điểm') ?></option>
     			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
 					<option <?php echo ($data['location2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     		<select class="last" name="level" id="level">
-    			<option value="">Cấp độ công việc</option>
-    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
-    			<option value="Experienced">Có Kinh Nghiệm</option>
-    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
-    			<option value="Manager">Quản Lý</option>
-    			<option value="Executive Management">Quản Lý Cấp Cao</option>
+    			<option value=""><?php echo $this->__('Cấp độ công việc') ?></option>
+    			<option value="New Graduates/Entry Level"><?php echo $this->__('Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm') ?></option>
+    			<option value="Experienced"><?php echo $this->__('Có Kinh Nghiệm') ?></option>
+    			<option value="Team Leader/Supervisor/Assistant Manager"><?php echo $this->__('Trưởng Nhóm/Giám Sát/Trợ Lý') ?></option>
+    			<option value="Manager"><?php echo $this->__('Quản Lý') ?></option>
+    			<option value="Executive Management"><?php echo $this->__('Quản Lý Cấp Cao') ?></option>
     		</select>
     	</div>
     	
     	<div class="row heading">
-    		<span>Trình độ học vấn</span>
+    		<span><?php echo $this->__('Trình độ học vấn') ?></span>
     		<div class="last">
-	    		<input type="radio" name="education" value="1" /> Nước ngoài
-	    		<input type="radio" name="education" value="2" /> Việt Nam
+	    		<input type="radio" name="education" value="1" /> <?php echo $this->__('Nước ngoài') ?>
+	    		<input type="radio" name="education" value="2" /> <?php echo $this->__('Việt Nam') ?>
     		</div>
     	</div>
     	
     	<div class="row row2">
-    		<input type="text" class="first" name="school" placeholder="Tên trường" />
-    		<input type="text" class="last" name="spec" placeholder="Chuyên ngành" />
+    		<input type="text" class="first" name="school" placeholder="<?php echo $this->__('Tên trường') ?>" />
+    		<input type="text" class="last" name="spec" placeholder="<?php echo $this->__('Chuyên ngành') ?>" />
     	</div>
     	
     	<div class="row row2">
     		<select name="degree" id="degree" class="first">
-    			<option value="">Bằng cấp</option>
-    			<option value="Diploma">Trung cấp</option>
-    			<option value="College">Cao đẳng</option>
-    			<option value="Bachelor">Đại học</option>
-    			<option value="Master">Thạc sĩ</option>
-    			<option value="Doctor">Tiến sĩ</option>
+    			<option value=""><?php echo $this->__('Bằng cấp') ?></option>
+    			<option value="Diploma"><?php echo $this->__('Trung cấp') ?></option>
+    			<option value="College"><?php echo $this->__('Cao đẳng') ?></option>
+    			<option value="Bachelor"><?php echo $this->__('Đại học') ?></option>
+    			<option value="Master"><?php echo $this->__('Thạc sĩ') ?></option>
+    			<option value="Doctor"><?php echo $this->__('Tiến sĩ') ?></option>
     		</select>
     		<select name="graduate" id="graduate" class="last">
-    			<option value="">Năm tốt nghiệp</option>
+    			<option value=""><?php echo $this->__('Năm tốt nghiệp') ?></option>
     			<?php 
             	$y = (int) Date('Y');
             	for($i = $y; $i >= $y-40;$i--): ?>
@@ -158,9 +158,9 @@
     	</div>
     	
     	<div class="row heading">
-    		<span>Kinh nghiệm</span>
+    		<span><?php echo $this->__('Kinh nghiệm') ?></span>
     		<div class="last">
-    			<input type="checkbox" name="newgraduate" id="newgraduate" value="1"/> Tôi vừa mới ra trường, chưa có kinh nghiệm làm việc
+    			<input type="checkbox" name="newgraduate" id="newgraduate" value="1"/> <?php echo $this->__('Tôi vừa mới ra trường, chưa có kinh nghiệm làm việc') ?>
     		</div>
     	</div>
     	
@@ -168,26 +168,26 @@
     		<span class="re">*</span>
     		<span class="re re2">*</span>
     		<select required class="first" name="category2" id="category2">
-    			<option value="">Ngành nghề</option>
+    			<option value=""><?php echo $this->__('Ngành nghề') ?></option>
 				<?php echo $this->getCategoryList($data['category2']) ?>
     		</select>
     		<select required class="last" name="function2" id="function2">
-    			<option value="">Chức năng</option>
+    			<option value=""><?php echo $this->__('Chức năng') ?></option>
 				<?php echo $this->getFunctionList($data['function2']) ?>
     		</select>
     	</div>
     	
     	<div class="row row2">
     		<select class="first" name="level2" id="level2">
-    			<option value="">Cấp độ công việc</option>
-    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
-    			<option value="Experienced">Có Kinh Nghiệm</option>
-    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
-    			<option value="Manager">Quản Lý</option>
-    			<option value="Executive Management">Quản Lý Cấp Cao</option>
+    			<option value=""><?php echo $this->__('Cấp độ công việc') ?></option>
+    			<option value="New Graduates/Entry Level"><?php echo $this->__('Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm') ?></option>
+    			<option value="Experienced"><?php echo $this->__('Có Kinh Nghiệm') ?></option>
+    			<option value="Team Leader/Supervisor/Assistant Manager"><?php echo $this->__('Trưởng Nhóm/Giám Sát/Trợ Lý') ?></option>
+    			<option value="Manager"><?php echo $this->__('Quản Lý') ?></option>
+    			<option value="Executive Management"><?php echo $this->__('Quản Lý Cấp Cao') ?></option>
     		</select>
     		<select name="exp" id="exp" class="last">
-    			<option value="">Số năm kinh nghiệm</option>
+    			<option value=""><?php echo $this->__('Số năm kinh nghiệm') ?></option>
     			<?php for($i=1;$i<41;$i++): ?>
     			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> năm</option>
     			<?php endfor; ?>
@@ -195,61 +195,61 @@
     	</div>
     	
     	<div class="row row1">
-    		<textarea placeholder="Chi tiết công việc" name="detail" id="detail"></textarea>
+    		<textarea placeholder="<?php echo $this->__('Chi tiết công việc') ?>" name="detail" id="detail"></textarea>
     	</div>
     	
     	<div class="row heading">
-    		<span>Ngôn ngữ</span>
+    		<span><?php echo $this->__('Ngôn ngữ') ?></span>
     	</div>
     	
     	<div class="row lang">
     		<div class="text">
-    			Tiếng Anh
+    			<?php echo $this->__('Tiếng Anh') ?>
     		</div>
     		<select name="en" id="en">
-    			<option value="">Cấp độ</option>
-    			<option value="Native">Bản ngữ</option>
-    			<option value="Advanced">Cao cấp</option>
-    			<option value="Intermediate">Trung cấp</option>
-    			<option value="Beginner">Sơ cấp</option>
-    			<option value="No">Không</option>
+    			<option value=""><?php echo $this->__('Cấp độ') ?></option>
+    			<option value="Native"><?php echo $this->__('Bản ngữ') ?></option>
+    			<option value="Advanced"><?php echo $this->__('Cao cấp') ?></option>
+    			<option value="Intermediate"><?php echo $this->__('Trung cấp') ?></option>
+    			<option value="Beginner"><?php echo $this->__('Sơ cấp') ?></option>
+    			<option value="No"><?php echo $this->__('Không') ?></option>
     		</select>
     	</div>
     	
     	<div class="row lang">
     		<div class="text">
-    			Tiếng Nhật
+    			<?php echo $this->__('Tiếng Nhật') ?>
     		</div>
     		<select name="jp" id="jp">
-    			<option value="">Cấp độ</option>
-    			<option value="Native">Bản ngữ</option>
-    			<option value="Advanced">Cao cấp</option>
-    			<option value="Intermediate">Trung cấp</option>
-    			<option value="Beginner">Sơ cấp</option>
-    			<option value="No">Không</option>
+    			<option value=""><?php echo $this->__('Cấp độ') ?></option>
+    			<option value="Native"><?php echo $this->__('Bản ngữ') ?></option>
+    			<option value="Advanced"><?php echo $this->__('Cao cấp') ?></option>
+    			<option value="Intermediate"><?php echo $this->__('Trung cấp') ?></option>
+    			<option value="Beginner"><?php echo $this->__('Sơ cấp') ?></option>
+    			<option value="No"><?php echo $this->__('Không') ?></option>
     		</select>
     	</div>
     	
     	<div class="row lang">
     		<div class="text">
-    			Tiếng Việt
+    			<?php echo $this->__('Tiếng Việt') ?>
     		</div>
     		<select name="vn" id="vn">
-    			<option value="">Cấp độ</option>
-    			<option value="Native">Bản ngữ</option>
-    			<option value="Advanced">Cao cấp</option>
-    			<option value="Intermediate">Trung cấp</option>
-    			<option value="Beginner">Sơ cấp</option>
-    			<option value="No">Không</option>
+    			<option value=""><?php echo $this->__('Cấp độ') ?></option>
+    			<option value="Native"><?php echo $this->__('Bản ngữ') ?></option>
+    			<option value="Advanced"><?php echo $this->__('Cao cấp') ?></option>
+    			<option value="Intermediate"><?php echo $this->__('Trung cấp') ?></option>
+    			<option value="Beginner"><?php echo $this->__('Sơ cấp') ?></option>
+    			<option value="No"><?php echo $this->__('Không') ?></option>
     		</select>
     	</div>
     	
     	<div class="row lang">
-    		<textarea placeholder="Thêm trình độ ngoại ngữ khác" name="otherlang" id="otherlang"></textarea>
+    		<textarea placeholder="<?php echo $this->__('Thêm trình độ ngoại ngữ khác') ?>" name="otherlang" id="otherlang"></textarea>
     	</div>
     	
     	<div class="row heading">
-    		<span>Kỹ năng</span>
+    		<span><?php echo $this->__('Kỹ năng') ?></span>
     	</div>
     	
     	<div class="row lang">
@@ -257,13 +257,13 @@
     	</div>
     	
     	<div class="row">
-    		<input required type="radio" name="decide" value="Tôi muốn tìm việc/chuyển việc ngay bây giờ" /> Tôi muốn tìm việc/chuyển việc ngay bây giờ<br />
-    		<input required type="radio" name="decide" value="Tôi muốn chuyển nếu có công việc/công ty tốt hơn" /> Tôi muốn chuyển nếu có công việc/công ty tốt hơn<br />
-    		<input required type="radio" name="decide" value="Tôi muốn chuyển việc trong tương lai (sau 1 năm)" /> Tôi muốn chuyển việc trong tương lai (sau 1 năm)<br />
+    		<input required type="radio" name="decide" value="<?php echo $this->__('Tôi muốn tìm việc/chuyển việc ngay bây giờ') ?>" /> <?php echo $this->__('Tôi muốn tìm việc/chuyển việc ngay bây giờ') ?><br />
+    		<input required type="radio" name="decide" value="<?php echo $this->__('Tôi muốn chuyển nếu có công việc/công ty tốt hơn') ?>" /> <?php echo $this->__('Tôi muốn chuyển nếu có công việc/công ty tốt hơn') ?><br />
+    		<input required type="radio" name="decide" value="<?php echo $this->__('Tôi muốn chuyển việc trong tương lai (sau 1 năm)') ?>" /> <?php echo $this->__('Tôi muốn chuyển việc trong tương lai (sau 1 năm)') ?><br />
     	</div>
     	
     	<div class="row">
-    		<input class="btn button-blue button" type="submit" value="Gửi" name="submit" />
+    		<input class="btn button-blue button" type="submit" value="<?php echo $this->__('Gửi') ?>" name="submit" />
     	</div>
     </form>
 </div>

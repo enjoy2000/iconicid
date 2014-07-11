@@ -1,8 +1,8 @@
 	<h2><?php echo $this->__('BLOG CATEGORY') ?></h2>
 	<ul class="parent">
 		<li class="clearfix <?php echo (count($this->getParent()) < 1) ? 'active' : '' ?>">
-			<a href="/blog/" title="<?php echo $this->__('すべて') ?>">
-				<?php echo $this->__('すべて') ?>
+			<a href="/blog/" title="<?php echo $this->__('All categories') ?>">
+				<?php echo $this->__('All categories') ?>
 				<span><?php echo $this->getCount() ?></span>
 			</a>
 		</li>
@@ -29,6 +29,6 @@
 		<?php endforeach; ?>
 	</ul>
 	<form id="keyword-search" method="post" action="/blog/index/search">
-		<input class="inline" placeholder="<?php echo $this->__('タイトル') ?>" name="q" type="text" value="<?php $this->getRequest()->getParam('q') ?>" />
+		<input class="inline" placeholder="<?php echo $this->__('Nhập từ khóa') ?>" name="q" type="text" value="<?php $this->getRequest()->getParam('q') ?>" />
 		<button class="btn inline" type="submit">&nbsp;</button>
 	</form>

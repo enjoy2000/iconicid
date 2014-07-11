@@ -4,7 +4,7 @@
 	<p><?php echo $this->__('Bạn đã đăng ký thành công.Để kích hoạt tài khoản của bạn, vui lòng nhấn vào đường dẫn trong email ICONIC gửi đến bạn.') ?></p>
 	<p><?php echo $this->__('Nếu bạn không nhận được email kích hoạt vui lòng kiểm tra <strong>Hộp thư Bulk/Spam</strong>.') ?></p>
 	<br />
-	<p>Trở về <a title="Trang chủ" href="/">Trang chủ</a> hoặc <a href="/<?php echo $this->helper('job')->getLoginUrl() ?>" title="Đăng nhập">Đăng nhập</a> lại.</p>
+	<p><?php echo $this->__('Trở về <a title="Home" href="/">Home</a> hoặc <a href="/%s" title="Đăng nhập">Đăng nhập</a> lại.',$this->helper('job')->getLoginUrl()) ?></p>
 </div>
 <!-- Google Code for Sign-up Conversion Page --> 
 <script type="text/javascript">

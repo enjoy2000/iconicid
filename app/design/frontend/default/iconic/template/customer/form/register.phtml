@@ -157,8 +157,8 @@
                         <div class="input-box fll width-45">
                             <select required placeholder="<?php echo $this->__('Chọn giới tính') ?>" name="sex" title="<?php echo $this->__('Chọn giới tính') ?>" id="sex" class="select-box required-entry">
                             	<option value=""><?php echo $this->__('Chọn giới tính') ?></option>
-                            	<option <?php echo ($this->getFormData()->getSex()==$this->__('Nam')) ? 'selected="selected"' : '' ?> value="<?php echo $this->__('Nam') ?>"><?php echo $this->__('Nam') ?></option>
-                            	<option <?php echo ($this->getFormData()->getSex()==$this->__('Nữ')) ? 'selected="selected"' : '' ?> value="<?php echo $this->__('Nữ') ?>"><?php echo $this->__('Nữ') ?></option>
+                            	<option <?php echo ($this->getFormData()->getSex()=='M') ? 'selected="selected"' : '' ?> value="M"><?php echo $this->__('Nam') ?></option>
+                            	<option <?php echo ($this->getFormData()->getSex()=='F') ? 'selected="selected"' : '' ?> value="F"><?php echo $this->__('Nữ') ?></option>
                             </select>
                         </div>
                         <div class="input-box flr width-45">

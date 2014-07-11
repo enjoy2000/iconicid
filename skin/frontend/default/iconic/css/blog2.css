@@ -195,7 +195,6 @@
 }
 #blogs-content .blog-wrapper .blog-info .parent1 {
 	background-color: #16a085;
-	display: none;
 }
 #blogs-content .blog-wrapper .blog-info .parent2 {
 	background-color: #3498db;
@@ -234,7 +233,6 @@
 }
 .pager ol li a{
 	padding: 0px 7px;
-	border: solid 1px #4571EB;
 	color: #4571EB;
 	text-decoration: none;
 }
@@ -242,11 +240,12 @@
 	border-color: #000;
 }
 .pager ol li{
-	display: inline;
+	display: inline-block;
+	border: solid 1px #4571EB;
 }
 .pager ol li.current{
 	color: #000;
-	border: solid 1px #000;
+	border-color: #000;
 	padding: 0 7px;
 }
 #blog-details{

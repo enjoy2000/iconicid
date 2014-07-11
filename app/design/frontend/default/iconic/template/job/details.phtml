@@ -15,14 +15,14 @@ $jobs = $this->getJobsInCategory();
 	<!-- Job Infomation -->
 	<div id="job-info">
 		<p class="text-blue tit">
-			<?php echo $this->__('Thông tin công việc:') ?>
+			<?php echo $this->__('Thông tin công việc') ?>:
 		<?php echo $item->getInfo() ?>
 		</p>
 	</div>
 	<!-- Job Requirement -->
 	<div id="job-requirement">
 		<p class="text-blue tit">
-			<?php echo $this->__('Yêu cầu công việc:') ?>
+			<?php echo $this->__('Yêu cầu công việc') ?>:
 		</p>
 		<?php echo $item->getRequirement() ?>
 	</div>
@@ -53,27 +53,27 @@ $jobs = $this->getJobsInCategory();
 	<!-- Job Details -->
 	<div class="job-details">
 		<p class="first">
-			<span><?php echo $this->__('Ngày đăng:') ?></span>
+			<span><?php echo $this->__('Ngày đăng') ?>:</span>
 			<?php echo Mage::helper('job')->formatDate($item->getCreatedTime()) ?>
 		</p>
 		<p>
-			<span><?php echo $this->__('Ngành nghề:') ?></span>
+			<span><?php echo $this->__('Ngành nghề') ?>:</span>
 			<?php echo $this->getCategory()->getName() ?>
 		</p>
 		<p>
-			<span><?php echo $this->__('Chức năng:') ?></span>
+			<span><?php echo $this->__('Chức năng') ?>:</span>
 			<?php echo $this->getFunctionCategory()->getName() ?>
 		</p>
 		<p>
-			<span><?php echo $this->__('Địa điểm làm việc:') ?></span>
+			<span><?php echo $this->__('Địa điểm làm việc') ?>:</span>
 			<?php echo $this->getLocation()->getName() ?>
 		</p>
 		<p>
-			<span><?php echo $this->__('Cấp độ công việc:') ?></span>
+			<span><?php echo $this->__('Cấp độ công việc') ?>:</span>
 			<?php echo $this->getLevel()->getName() ?>
 		</p>
 		<p>
-			<span><?php echo $this->__('Lương:') ?></span>
+			<span><?php echo $this->__('Lương') ?>:</span>
 			<?php
 			if($item->getJobSalary() == 0){
 				echo $this->__('Thương lượng');
@@ -87,7 +87,7 @@ $jobs = $this->getJobsInCategory();
 			?>
 		</p>
 		<p class="last">
-			<span><?php echo $this->__('Loại hình:') ?></span>
+			<span><?php echo $this->__('Loại hình') ?>:</span>
 			<?php echo $this->getType()->getName() ?>
 		</p>
 	</div>

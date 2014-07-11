@@ -8,7 +8,7 @@ class Iconic_Blog_IndexController extends Mage_Core_Controller_Front_Action
 		//breadcrumbs
 		$helper = Mage::helper('blog');
 		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Trang chủ'), 'title'=>$helper->__('Trang chủ'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
 			$breadcrumbs->addCrumb('blog', array('label'=>$helper->__('Blog'), 'title'=>$helper->__('Blog'), 'link'=>Mage::getUrl(Mage::helper('blog')->getRoute())));
 		}
 		

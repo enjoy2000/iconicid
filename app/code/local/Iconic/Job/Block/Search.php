@@ -5,12 +5,11 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 	protected function _prepareLayout(){
 		$helper = Mage::helper('job');
 		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Trang chủ'), 'title'=>$helper->__('Trang chủ'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
 			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl(Mage::helper('job')->getSearchUrl())));
 		}		
 		
 		$this->setPost($this->getRequest()->getPost());
-		
 		return parent::_prepareLayout();
 	}
 	
@@ -93,9 +92,8 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		//get list location and category
 		if (!$this->hasData('locationList')){
 			$location = Mage::getModel('job/location')->getCollection()
-						->addFieldToFilter('name',array('neq'=>'Hồ Chí Minh','neq'=>'Hà Nội'))
 						->setOrder('url_key','ASC')->load();
-			$listLocation = '<option value="'.Mage::getModel('job/location')->load('Hồ Chí Minh','name')->getId().'">Hồ Chí Minh</option><option value="'.Mage::getModel('job/location')->load('Hà Nội','name')->getId().'">Hà Nội</option>';
+			$listLocation = '';
 			if ($this->getLocation()){
 				foreach ($location as $loc){
 					$selected = "";
