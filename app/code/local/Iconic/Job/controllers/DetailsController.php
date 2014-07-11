@@ -27,7 +27,7 @@ class Iconic_Job_DetailsController extends Mage_Core_Controller_Front_Action{
 		//set breadcrumbs		
 		$helper = Mage::helper('job');
 		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::helper('job')->getBaseUrl()));
 			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl(Mage::helper('job')->getSearchUrl())));
 			$breadcrumbs->addCrumb('job_details', array('label'=>$helper->__('Chi tiết công việc'), $helper->__('Chi tiết công việc')));
 		}	

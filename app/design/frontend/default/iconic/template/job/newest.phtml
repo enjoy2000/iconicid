@@ -39,13 +39,13 @@
 					?>
 						<?php if($ins < $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> <span>(<?php echo $cat->getCount() ?>)</span>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> <span>(<?php echo $cat->getCount() ?>)</span>
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -63,13 +63,13 @@
 					?>
 						<?php if($ins >= $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> <span>(<?php echo $cat->getCount() ?>)</span>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> <span>(<?php echo $cat->getCount() ?>)</span>
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -95,13 +95,13 @@
 					?>
 						<?php if($func < $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> <span>(<?php echo $cat->getCount() ?>)</span>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> <span>(<?php echo $cat->getCount() ?>)</span>
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -119,13 +119,13 @@
 					?>
 						<?php if($func >= $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> <span>(<?php echo $cat->getCount() ?>)</span>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> <span>(<?php echo $cat->getCount() ?>)</span>
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -151,7 +151,7 @@
 					?>
 						<?php if($lev < $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>
@@ -164,7 +164,7 @@
 					?>
 						<?php if($lev >= $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
+							<a href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo Mage::helper('job')->getTransName($parent) ?>"><?php echo Mage::helper('job')->getTransName($parent); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>

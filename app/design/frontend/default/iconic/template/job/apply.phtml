@@ -9,7 +9,7 @@
 	<?php echo Mage::helper('job')->renderTitle($job); ?>
 </div>
 <div class="form-apply width-60">
-	<form id="form-apply" action="<?php echo Mage::getBaseUrl() ?>job/apply/send" method="POST" >
+	<form id="form-apply" action="<?php echo Mage::helper('job')->getBaseUrl() ?>job/apply/send" method="POST" >
 		<input type="hidden" name="id" value="<?php echo $job->getId() ?>" />
 		<div class="row clearfix">
 			<input class="fll width-40" name="name" type="text" value="<?php echo $user->getName() ?>" readonly="readonly"  />
@@ -19,7 +19,7 @@
 			<textarea name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
 		</div>
 		<div class="row">
-			<input id="fileupload" type="file" name="files[]" data-url="<?php echo Mage::getBaseUrl() ?>job/apply/upload" multiple>
+			<input id="fileupload" type="file" name="files[]" data-url="<?php echo Mage::helper('job')->getBaseUrl() ?>job/apply/upload" multiple>
 			<div id="progress">
 			    <div class="bar" style="width: 0%;"></div>
 			</div>
@@ -39,9 +39,9 @@
 </div>
 
 
-<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/vendor/jquery.ui.widget.js"></script>
-<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.iframe-transport.js"></script>
-<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.fileupload.js"></script>
+<script src="<?php echo Mage::helper('job')->getBaseUrl() ?>js/fileupload/vendor/jquery.ui.widget.js"></script>
+<script src="<?php echo Mage::helper('job')->getBaseUrl() ?>js/fileupload/jquery.iframe-transport.js"></script>
+<script src="<?php echo Mage::helper('job')->getBaseUrl() ?>js/fileupload/jquery.fileupload.js"></script>
 <script>
 (function($){
 	$(function () {

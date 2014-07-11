@@ -14,6 +14,13 @@ class Iconic_Job_Block_Adminhtml_Location_Edit_Tab_Form extends Mage_Adminhtml_B
             'required'  => true,
             'name'      => 'name',
         ));
+		
+		$fieldset->addField('name_en', 'text', array(
+            'label'     => Mage::helper('job')->__('Name En'),
+            'class'     => 'required-entry',
+            'required'  => true,
+            'name'      => 'name_en',
+        ));
  
         if ( Mage::getSingleton('adminhtml/session')->getLocationData() )
         {

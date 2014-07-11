@@ -63,7 +63,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		$helper = Mage::helper('job');
 		/*
 		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::helper('job')->getBaseUrl()));
 			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Đăng ký'), 'title'=>$helper->__('Đăng ký'), 'link'=>Mage::getUrl(Mage::helper('job')->getRegisterUrl())));
 		}
 		*/

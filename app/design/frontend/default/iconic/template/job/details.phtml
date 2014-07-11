@@ -58,19 +58,19 @@ $jobs = $this->getJobsInCategory();
 		</p>
 		<p>
 			<span><?php echo $this->__('Ngành nghề') ?>:</span>
-			<?php echo $this->getCategory()->getName() ?>
+			<?php echo Mage::helper('job')->getTransName($this->getCategory()) ?>
 		</p>
 		<p>
 			<span><?php echo $this->__('Chức năng') ?>:</span>
-			<?php echo $this->getFunctionCategory()->getName() ?>
+			<?php echo Mage::helper('job')->getTransName($this->getFunctionCategory()) ?>
 		</p>
 		<p>
 			<span><?php echo $this->__('Địa điểm làm việc') ?>:</span>
-			<?php echo $this->getLocation()->getName() ?>
+			<?php echo Mage::helper('job')->getTransName($this->getLocation()) ?>
 		</p>
 		<p>
 			<span><?php echo $this->__('Cấp độ công việc') ?>:</span>
-			<?php echo $this->getLevel()->getName() ?>
+			<?php echo Mage::helper('job')->getTransName($this->getLevel()) ?>
 		</p>
 		<p>
 			<span><?php echo $this->__('Lương') ?>:</span>
@@ -88,7 +88,7 @@ $jobs = $this->getJobsInCategory();
 		</p>
 		<p class="last">
 			<span><?php echo $this->__('Loại hình') ?>:</span>
-			<?php echo $this->getType()->getName() ?>
+			<?php echo Mage::helper('job')->getTransName($this->getType()) ?>
 		</p>
 	</div>
 	

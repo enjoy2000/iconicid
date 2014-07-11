@@ -11,7 +11,7 @@ class Iconic_Job_Model_Parentcategory extends Mage_Core_Model_Abstract
     protected function _beforeSave()
     {
         if(!$this->getUrlKey()){
-            $urlKey = Mage::helper('job')->formatUrlKey($this->getName());
+            $urlKey = Mage::helper('job')->formatUrlKey($this->getNameEn());
             if(!Mage::getModel('job/parentcategory')->load($urlKey, 'url_key')->getId()){
                 $this->setUrlKey($urlKey);
             } else {
@@ -40,7 +40,7 @@ class Iconic_Job_Model_Parentcategory extends Mage_Core_Model_Abstract
 	}
 
 	public function getUrl(){
-		$url = Mage::getUrl($this->getUrlKey());
+		$url = Mage::helper('job')->getBaseUrl().$this->getUrlKey();
 		return $url;
 	}
 	

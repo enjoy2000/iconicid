@@ -5,15 +5,15 @@
     <div class="top-sitemap">
     	<table>
     		<tr>
-    			<td><a href="/" title="<?php echo $this->__('Home') ?>"><?php echo $this->__('Home') ?></a></td>
-    			<td><a href="/blog" title="<?php echo $this->__('Blog') ?>">Blog</a></td>
-    			<td><a href="/nguoi-tim-viec" title="<?php echo $this->__('Người tìm việc') ?>"><?php echo $this->__('Người tìm việc') ?></a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>" title="<?php echo $this->__('Home') ?>"><?php echo $this->__('Home') ?></a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>blog" title="<?php echo $this->__('Blog') ?>">Blog</a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>for-job-seekers" title="<?php echo $this->__('Người tìm việc') ?>"><?php echo $this->__('Người tìm việc') ?></a></td>
     		</tr>
     		<tr height="10"></tr>
     		<tr>
-    			<td><a href="/gioi-thieu-cong-ty" title="<?php echo $this->__('Giới thiệu công ty') ?>"><?php echo $this->__('Giới thiệu công ty') ?></a></td>
-    			<td><a href="/chinh-sach-bao-mat" title="<?php echo $this->__('Chính sách bảo mật') ?>"><?php echo $this->__('Chính sách bảo mật') ?></a></td>
-    			<td><a href="/nha-tuyen-dung" title="<?php echo $this->__('Nhà tuyển dụng') ?>"><?php echo $this->__('Nhà tuyển dụng') ?></a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>company-profile" title="<?php echo $this->__('Giới thiệu công ty') ?>"><?php echo $this->__('Giới thiệu công ty') ?></a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>privacy-policy" title="<?php echo $this->__('Chính sách bảo mật') ?>"><?php echo $this->__('Chính sách bảo mật') ?></a></td>
+    			<td><a href="<?php echo Mage::helper('job')->getBaseUrl() ?>for-employer" title="<?php echo $this->__('Nhà tuyển dụng') ?>"><?php echo $this->__('Nhà tuyển dụng') ?></a></td>
     		</tr>
     	</table>
     </div>
@@ -38,8 +38,8 @@
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> 
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> 
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -62,8 +62,8 @@
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> 
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> 
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -94,8 +94,8 @@
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> 
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> 
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -118,8 +118,8 @@
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>">
-											<?php echo $cat->getName() ?> 
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($cat) ?>">
+											<?php echo Mage::helper('job')->getTransName($cat) ?> 
 										</a>
 									</li>
 								<?php endforeach; ?>
@@ -145,7 +145,7 @@
 					?>
 						<?php if($lev < $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>
@@ -158,7 +158,7 @@
 					?>
 						<?php if($lev >= $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl().'?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>
@@ -172,8 +172,8 @@
 					<tr>
 					<?php $l=1;foreach($this->getLocationList() as $loc): ?>
 						<td>
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>/<?php echo $loc->getUrlKey() ?>" title="<?php echo $loc->getName() ?>">
-								<?php echo $loc->getName() ?>
+							<a href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl() ?>/<?php echo $loc->getUrlKey() ?>" title="<?php echo Mage::helper('job')->getTransName($loc) ?>">
+								<?php echo Mage::helper('job')->getTransName($loc) ?>
 							</a>
 						</td>
 						<?php if($l%3==0 && $l != $this->getLocationList()->count()): ?>

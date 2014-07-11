@@ -27,7 +27,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 		//set breadcrumbs		
 		$helper = Mage::helper('job');
 		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::helper('job')->getBaseUrl()));
 			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl(Mage::helper('job')->getSearchUrl())));
 			$breadcrumbs->addCrumb('job_details', array('label'=>$helper->__('Chi tiết công việc'), $helper->__('Chi tiết công việc')));
 			$breadcrumbs->addCrumb('job_apply', array('label'=>$helper->__('Liên hệ ứng tuyển'), $helper->__('Liên hệ ứng tuyển')));
@@ -59,7 +59,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 		$upload_handler = new UploadHandler();
 		$user = Mage::getSingleton('customer/session')->getCustomer();
 		$upload_handler->options['upload_dir'] = Mage::getBaseDir().'/files/'.$user->getId().'/';
-		$upload_handler->options['upload_url'] = Mage::getBaseUrl().'files/'.$user->getId().'/';
+		$upload_handler->options['upload_url'] = Mage::helper('job')->getBaseUrl().'files/'.$user->getId().'/';
 		$upload_handler->options['accept_file_types'] = '/\.(gif|jpe?g|png|docx?|xlsx?|pptx?|pdf)$/i';
 		$upload_handler->initialize();
 	}
@@ -90,7 +90,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			//set breadcrumbs		
 			$helper = Mage::helper('job');
 			if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
-				$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::getBaseUrl()));
+				$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Home'), 'link'=>Mage::helper('job')->getBaseUrl()));
 				$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl('job/search')));
 				$breadcrumbs->addCrumb('job_details', array('label'=>$helper->__('Chi tiết công việc'), $helper->__('Chi tiết công việc')));
 				$breadcrumbs->addCrumb('job_apply', array('label'=>$helper->__('Liên hệ ứng tuyển'), $helper->__('Liên hệ ứng tuyển')));

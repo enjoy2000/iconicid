@@ -11,7 +11,7 @@ class Iconic_Job_Model_Feature extends Mage_Core_Model_Abstract
 	protected function _beforeSave()
     {
         if(!$this->getUrlKey()){
-            $urlKey = Mage::helper('job')->formatUrlKey($this->getName());
+            $urlKey = Mage::helper('job')->formatUrlKey($this->getNameEn());
             if(!Mage::getModel('job/feature')->load($urlKey, 'url_key')->getId()){
                 $this->setUrlKey($urlKey);
             } else {
@@ -23,7 +23,7 @@ class Iconic_Job_Model_Feature extends Mage_Core_Model_Abstract
     }
 	
 	public function getUrl(){
-		$base = Mage::getBaseUrl();
+		$base = Mage::helper('job')->getBaseUrl();
 		return $base.Mage::helper('job')->getSearchUrl().'/'.$this->getUrlKey();
 	}
 

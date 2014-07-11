@@ -28,8 +28,8 @@
 	</div>
 	<div class="flr">
 		<?php foreach($this->getFeatureTags() as $feature): ?>
-			<a href="<?php echo $feature->getUrl() ?>" title="<?php echo $feature->getName() ?>">
-				<?php echo $feature->getName() ?>
+			<a href="<?php echo $feature->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($feature) ?>">
+				<?php echo Mage::helper('job')->getTransName($feature) ?>
 			</a>
 			<?php echo ($this->getFeatureTags()->getLastItem()->getId() != $feature->getId()) ? '<span>|</span>' : '' ?>
 		<?php endforeach; ?>
@@ -155,8 +155,8 @@
 				foreach($industryCategory as $parent):
 			?>
 				<div class="parent has-child">
-					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
-						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
+					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo Mage::helper('job')->getTransName($parent) ?>">
+						<?php echo Mage::helper('job')->getTransName($parent) ?> <span>(<?php echo $parent->getCount() ?>)</span>
 					</a>
 					<?php 
 					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
@@ -165,8 +165,8 @@
 						<ul>
 						<?php foreach($subs as $sub): ?>						
 							<li>
-								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
-									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
+								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($sub) ?>">
+									<?php echo Mage::helper('job')->getTransName($sub) ?> <span>(<?php echo $sub->getCount() ?>)</span>
 								</a>
 							</li>
 						<?php endforeach; ?>
@@ -184,8 +184,8 @@
 				foreach($functionCategory as $parent):
 			?>
 				<div class="parent has-child">
-					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
-						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
+					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo Mage::helper('job')->getTransName($parent) ?>">
+						<?php echo Mage::helper('job')->getTransName($parent) ?> <span>(<?php echo $parent->getCount() ?>)</span>
 					</a>
 					<?php 
 					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
@@ -194,8 +194,8 @@
 						<ul>
 						<?php foreach($subs as $sub): ?>						
 							<li>
-								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
-									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
+								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo Mage::helper('job')->getTransName($sub) ?>">
+									<?php echo Mage::helper('job')->getTransName($sub) ?> <span>(<?php echo $sub->getCount() ?>)</span>
 								</a>
 							</li>
 						<?php endforeach; ?>
@@ -209,8 +209,8 @@
 			<h4><?php echo $this->__('Tìm việc theo đối tượng') ?></h4>
 			<?php $levels = Mage::getModel('job/level')->getCollection(); ?>
 			<?php foreach($levels as $lv): ?>
-				<a class="filter-item" href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
-					<?php echo $lv->getName() ?> <span>(<?php echo $lv->getCount() ?>)</span>
+				<a class="filter-item" href="<?php echo Mage::helper('job')->getBaseUrl().Mage::helper('job')->getSearchUrl() ?>?level=<?php echo $lv->getLevelId() ?>" title="<?php echo Mage::helper('job')->getTransName($lv) ?>">
+					<?php echo Mage::helper('job')->getTransName($lv) ?> <span>(<?php echo $lv->getCount() ?>)</span>
 				</a>
 			<?php endforeach; ?>
 		</div>

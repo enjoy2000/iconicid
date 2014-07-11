@@ -15,6 +15,13 @@ class Iconic_Job_Block_Adminhtml_Parentcategory_Edit_Tab_Form extends Mage_Admin
             'name'      => 'name',
         ));
 		
+        $fieldset->addField('name_en', 'text', array(
+            'label'     => Mage::helper('job')->__('Name En'),
+            'class'     => 'required-entry',
+            'required'  => true,
+            'name'      => 'name_en',
+        ));
+		
 		$fieldset->addField('url_key', 'text', array(
             'label'     => Mage::helper('job')->__('Url Key'),
             'required'  => false,

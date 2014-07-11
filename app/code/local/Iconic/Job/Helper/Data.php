@@ -95,7 +95,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function getJobLink($job){
-		$link = Mage::getBaseUrl()
+		$link = Mage::helper('job')->getBaseUrl()
 					. $job->getCategory()->getParentCategory()->getUrlKey()
 					. '/'
 					. $job->getCategory()->getUrlKey()
@@ -105,7 +105,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function getApplyLink($jobId){
-		return Mage::getBaseUrl().'job/apply?id='.$jobId;
+		return Mage::helper('job')->getBaseUrl().'job/apply?id='.$jobId;
 	}
 	
 	public function renderJob($job){
@@ -145,7 +145,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function getCategoryUrl($catId){
 		$cat = Mage::getModel('job/category')->load($catId);
 		$parent = Mage::getModel('job/parentcategory')->load($cat->getParentcategoryId());
-		$url = Mage::getBaseUrl().$parent->getUrlKey().'/'.$cat->getUrlKey();
+		$url = Mage::helper('job')->getBaseUrl().$parent->getUrlKey().'/'.$cat->getUrlKey();
 		
 		return $url;
 	}
@@ -210,6 +210,15 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function getBaseUrl(){
 		$store = Mage::app()->getStore();
 		return ($store->getCode() == 'default') ? Mage::getBaseUrl() : Mage::getBaseUrl().'en/';
+	}
+	
+	public function getTransName($obj){
+		$store = Mage::app()->getStore();
+		if($store->getCode() == 'default'){
+			return $obj->getName();
+		}else{
+			return $obj->getNameEn();
+		}
 	}
 }
 	

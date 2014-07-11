@@ -30,21 +30,23 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 					$catOptions = '';
 					foreach ($categories as $cat){
 						$selected = "";
-						if($cat->getName() == $postName){
+						$catName = Mage::helper('job')->getTransName($cat);
+						if($cat->getNameEn() == $postName){
 							$selected = " selected=\"selected\"";
 						}
-						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$cat->getName()}</option>";
+						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$catName}</option>";
 					}
-					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+					$listCategory .= '<optgroup label="'.Mage::helper('job')->getTransName($parent).'">'.$catOptions.'</optgroup>';
 				}
 			} else {
 				foreach ($parentCategory as $parent){
 					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
 					$catOptions = '';
 					foreach ($categories as $cat){
-						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $cat->getName() . '</option>';
+						$catName = Mage::helper('job')->getTransName($cat);
+						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $catName . '</option>';
 					}
-					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+					$listCategory .= '<optgroup label="'.Mage::helper('job')->getTransName($parent).'">'.$catOptions.'</optgroup>';
 				}
 			}
 			$this->setData('categoryList', $listCategory);
@@ -62,22 +64,24 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
 					$catOptions = '';
 					foreach ($categories as $cat){
+						$catName = Mage::helper('job')->getTransName($cat);
 						$selected = "";
-						if($cat->getName() == $postName){
+						if($cat->getNameEn() == $postName){
 							$selected = " selected=\"selected\"";
 						}
-						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$cat->getName()}</option>";
+						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$catName}</option>";
 					}
-					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+					$listCategory .= '<optgroup label="'.Mage::helper('job')->getTransName($parent).'">'.$catOptions.'</optgroup>';
 				}
 			} else {
 				foreach ($parentCategory as $parent){
 					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
 					$catOptions = '';
 					foreach ($categories as $cat){
-						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $cat->getName() . '</option>';
+						$catName = Mage::helper('job')->getTransName($cat);
+						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $catName . '</option>';
 					}
-					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+					$listCategory .= '<optgroup label="'.Mage::helper('job')->getTransName($parent).'">'.$catOptions.'</optgroup>';
 				}
 			}
 			$this->setData('functionList', $listCategory);
