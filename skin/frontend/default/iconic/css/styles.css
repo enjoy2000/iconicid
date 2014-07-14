@@ -127,6 +127,23 @@ html, button, input, select, textarea {
 	height: 26px;
 	width: 75px;
 }
+#header #header-menu > .wrapper .top-social a.lang-switch{
+	width: auto;
+	padding: 0 7px;
+	padding-top: 8px;
+	height: 26px;
+}
+#header #header-menu > .wrapper .top-social a.lang-switch.id{
+	height: 25px;
+	color: #1197ec;
+	background-color: #fff;
+	border: solid 1px #1197ec;
+	border-top: none;
+}
+#header #header-menu > .wrapper .top-social a.lang-switch.en{
+	color: #fff;
+	background-color: #1197ec;
+}
 #header #header-menu > .wrapper .top-social > a.login:hover{
 	background-color: #a7a9ac;
 }
@@ -818,11 +835,12 @@ div.gioi-thieu-cong-ty .info .content .hn{
 	text-align: center;
 }
 div.gioi-thieu-cong-ty .info .content .ceo{
-	width: 300px;
+	width: 284px;
 	text-align: center;
 	position: absolute;
-	top: 45px;
-	left: 33px;
+	top: 31px;
+	left: 44px;
+	letter-spacing: -0.8px;
 }
 div.gioi-thieu-cong-ty .info .content .ceo p span{
 	font-size: 16px;
