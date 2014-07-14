@@ -126,23 +126,31 @@ html, button, input, select, textarea {
 	padding-top: 8px;
 	height: 26px;
 	width: 75px;
+	text-align: center;
 }
 #header #header-menu > .wrapper .top-social a.lang-switch{
 	width: auto;
 	padding: 0 7px;
 	padding-top: 8px;
-	height: 26px;
-}
-#header #header-menu > .wrapper .top-social a.lang-switch.id{
 	height: 25px;
-	color: #1197ec;
-	background-color: #fff;
 	border: solid 1px #1197ec;
 	border-top: none;
+}
+#header #header-menu > .wrapper .top-social a.lang-switch.id{
+	color: #1197ec;
+	background-color: #fff;
+}
+#header #header-menu > .wrapper .top-social a.lang-switch.id:hover{
+	color: #fff;
+	background-color: #1197ec;
 }
 #header #header-menu > .wrapper .top-social a.lang-switch.en{
 	color: #fff;
 	background-color: #1197ec;
+}
+#header #header-menu > .wrapper .top-social a.lang-switch.en:hover{
+	color: #1197ec;
+	background-color: #fff;
 }
 #header #header-menu > .wrapper .top-social > a.login:hover{
 	background-color: #a7a9ac;
