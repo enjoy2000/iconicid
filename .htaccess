@@ -162,11 +162,33 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
-
-############################################
-## rewrite everything else to index.php
-
-    RewriteRule .* index.php [L]
+	RewriteRule ^en$ index.php?___store=en&___path=/ [QSA,L]
+	
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^en/(.*) index.php?___store=en&___path=/$1 [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^id$ index.php?___store=id&___path=/ [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^id/(.*) index.php/$1?___store=id&___path=/$1 [QSA,L]
+	
+	RewriteCond %{REQUEST_URI} ^/index.php/admin.*$
+	RewriteRule index.php/(.*) index.php?___path=/$1 [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule (.*) index.php?___store=id&___path=/$1 [QSA,L]
+	
+	RewriteRule ^index\.php$ index.php?___store=id&___path=/ [QSA,L]
 
 </IfModule>
 
