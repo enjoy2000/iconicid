@@ -1,8 +1,4 @@
 <?php
-if(isset($_GET['___path'])){
-	$_SERVER['REQUEST_URI'] = $_GET['___path'];
-	unset($_GET['___path']);
-}
 /**
  * Magento
  *
@@ -48,12 +44,12 @@ error_reporting(E_ALL | E_STRICT);
  */
 define('MAGENTO_ROOT', getcwd());
 
-$compilerConfig = MAGENTO_ROOT . '/includes/config.php';
+$compilerConfig = '../includes/config.php';
 if (file_exists($compilerConfig)) {
     include $compilerConfig;
 }
 
-$mageFilename = MAGENTO_ROOT . '/app/Mage.php';
+$mageFilename = '../app/Mage.php';
 $maintenanceFile = 'maintenance.flag';
 
 if (!file_exists($mageFilename)) {
@@ -78,7 +74,7 @@ if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
     Mage::setIsDeveloperMode(true);
 }
 
-ini_set('display_errors', 1);
+#ini_set('display_errors', 1);
 
 umask(0);
 
@@ -87,4 +83,5 @@ $mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : ''
 
 /* Run store or run website */
 $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 'store';
-Mage::run($mageRunCode, $mageRunType);
+
+Mage::run('en', $mageRunType);
