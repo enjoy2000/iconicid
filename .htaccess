@@ -73,29 +73,31 @@
 
 <IfModule mod_deflate.c>
 
-############################################
-## enable apache served files compression
-## http://developer.yahoo.com/performance/rules.html#gzip
-
-    # Insert filter on all content
-    ###SetOutputFilter DEFLATE
-    # Insert filter on selected content types only
-    #AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
-
-    # Netscape 4.x has some problems...
-    #BrowserMatch ^Mozilla/4 gzip-only-text/html
-
-    # Netscape 4.06-4.08 have some more problems
-    #BrowserMatch ^Mozilla/4\.0[678] no-gzip
-
-    # MSIE masquerades as Netscape, but it is fine
-    #BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-
-    # Don't compress images
-    #SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-
-    # Make sure proxies don't deliver the wrong content
-    #Header append Vary User-Agent env=!dont-vary
+SetOutputFilter DEFLATE
+    <IfModule mod_setenvif.c>
+        # Netscape 4.x has some problems...
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+ 
+        # Netscape 4.06-4.08 have some more problems
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+ 
+        # MSIE masquerades as Netscape, but it is fine
+        # BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+ 
+        # NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+        # the above regex won't work. You can use the following
+        # workaround to get the desired effect:
+        BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+ 
+        # Don't compress images
+        SetEnvIfNoCase Request_URI .(?:gif|jpe?g|png)$ no-gzip dont-vary
+    </IfModule>
+ 
+    <IfModule mod_headers.c>
+        # Make sure proxies don't deliver the wrong content
+		Header set Connection keep-alive
+        #Header append Vary User-Agent env=!dont-vary
+    </IfModule>
 
 </IfModule>
 
@@ -152,6 +154,8 @@
     #RewriteRule ^(.*)$ /mobiledirectoryhere/ [L,R=302]
 
 ############################################
+
+
 ## always send 404 on missing files in these folders
 
     RewriteCond %{REQUEST_URI} !^/(media|skin|js)/
@@ -162,11 +166,33 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
-
-############################################
-## rewrite everything else to index.php
-
-    RewriteRule .* index.php [L]
+	RewriteRule ^en$ index.php?___store=en&___path=/ [QSA,L]
+	
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^en/(.*) index.php?___store=en&___path=/$1 [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^default$ index.php?___store=default&___path=/ [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^default/(.*) index.php/$1?___store=default&___path=/$1 [QSA,L]
+	
+	RewriteCond %{REQUEST_URI} ^/index.php/admin.*$
+	RewriteRule index.php/(.*) index.php?___path=/$1 [QSA,L]
+	
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule (.*) index.php?___store=default&___path=/$1 [QSA,L]
+	
+	RewriteRule ^index\.php$ index.php?___store=default&___path=/ [QSA,L]
 
 </IfModule>
 
@@ -183,7 +209,8 @@
 ############################################
 ## Add default Expires header
 ## http://developer.yahoo.com/performance/rules.html#expires
-
+	
+	ExpiresActive On
     ExpiresDefault "access plus 1 year"
 
 </IfModule>
@@ -205,5 +232,3 @@
 ############################################
 ## If running in cluster environment, uncomment this
 ## http://developer.yahoo.com/performance/rules.html#etags
-
-    #FileETag none
