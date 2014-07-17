@@ -816,17 +816,17 @@ div.gioi-thieu-cong-ty .info .content{
 div.gioi-thieu-cong-ty .info .content .hcm{
 	position: absolute;
 	width: 250px;
-	right: -120px;
+	right: -130px;
 	top: 13px;
 }
 div.gioi-thieu-cong-ty .info .content .hcm p.tit{
 	color: #4571EB;
 	font-weight: bold;
 }
-div.gioi-thieu-cong-ty .info .content .hcm > div:nth-child(3){
-	margin-top: 32px;
+div.gioi-thieu-cong-ty .info .content .hcm > div:nth-child(2){
+	margin-top: 30px;
 }
-div.gioi-thieu-cong-ty .info .content .hcm > div:nth-child(4){
+div.gioi-thieu-cong-ty .info .content .hcm > div:nth-child(3){
 	margin-top: 27px;
 }
 div.gioi-thieu-cong-ty .info .content .hn{
@@ -840,8 +840,8 @@ div.gioi-thieu-cong-ty .info .content .ceo{
 	width: 284px;
 	text-align: center;
 	position: absolute;
-	top: 31px;
-	left: 44px;
+	top: 50px;
+	left: 50px;
 	letter-spacing: -0.8px;
 }
 div.gioi-thieu-cong-ty .info .content .ceo p span{

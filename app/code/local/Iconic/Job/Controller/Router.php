@@ -51,20 +51,19 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                 ->setActionName('index');
 			foreach($parts as $part){
 				$loc = Mage::getModel('job/location')->load($part, 'url_key');
-				$cat = Mage::getModel('job/category')->load($part, 'url_key');
+				$cat = Mage::getModel('job/parentcategory')->load($part, 'url_key');
 				$feature = Mage::getModel('job/feature')->load($part, 'url_key');
 				if($loc->getId()){
 					$request
 						->setParam('location', $loc->getId());
 				}
 				if($cat->getId()){
-					$parent = Mage::getModel('job/parentcategory')->load($cat->getParentcategoryId());
-					if($parent->getGroupCategory() == 'industry'){
+					if($cat->getGroupCategory() == 'industry'){
 						$request
-							->setParam('category', $cat->getId());
+							->setParam('industry', $cat->getId());
 					}else{
 						$request
-							->setParam('function_category', $cat->getId());
+							->setParam('function', $cat->getId());
 					}
 				}
 				if($feature->getId()){
