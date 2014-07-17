@@ -135,22 +135,16 @@ html, button, input, select, textarea {
 	height: 25px;
 	border: solid 1px #1197ec;
 	border-top: none;
-}
-#header #header-menu > .wrapper .top-social a.lang-switch.id{
 	color: #1197ec;
 	background-color: #fff;
 }
-#header #header-menu > .wrapper .top-social a.lang-switch.id:hover{
+#header #header-menu > .wrapper .top-social a.lang-switch.active{
 	color: #fff;
 	background-color: #1197ec;
 }
-#header #header-menu > .wrapper .top-social a.lang-switch.en{
+#header #header-menu > .wrapper .top-social a.lang-switch:hover{
 	color: #fff;
 	background-color: #1197ec;
-}
-#header #header-menu > .wrapper .top-social a.lang-switch.en:hover{
-	color: #1197ec;
-	background-color: #fff;
 }
 #header #header-menu > .wrapper .top-social > a.login:hover{
 	background-color: #a7a9ac;
