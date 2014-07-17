@@ -6,16 +6,16 @@
             <codePool>local</codePool>
         </Eezy_Disable>
         <Mage_Catalog>
-            <active>true</active>
+            <active>false</active>
         </Mage_Catalog>
         <Mage_CatalogRule>
-            <active>true</active>
+            <active>false</active>
         </Mage_CatalogRule>
         <Mage_CatalogIndex>
-            <active>true</active>
+            <active>false</active>
         </Mage_CatalogIndex>
         <Mage_CatalogSearch>
-            <active>true</active>
+            <active>false</active>
         </Mage_CatalogSearch>
         <Mage_Sales>
             <active>false</active>
