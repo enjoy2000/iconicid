@@ -122,15 +122,14 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			if ($this->getIndustry()){
 				foreach ($parentCategory as $parent){
 					$selected = "";
-					$catName = Mage::helper('job')->getTransName($cat);
 					if($parent->getId() == $this->getIndustry()){
 						$selected = " selected=\"selected\"";
 					}
-					$listCategory .= "<opttion{$selected} value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
+					$listCategory .= "<option{$selected} value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
 				}
 			} else {
 				foreach ($parentCategory as $parent){
-					$listCategory .= "<opttion value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
+					$listCategory .= "<option value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
 				}
 			}
 			$this->setData('categoryList', $listCategory);
@@ -146,15 +145,14 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			if ($this->getFunction()){
 				foreach ($parentCategory as $parent){
 					$selected = "";
-					$catName = Mage::helper('job')->getTransName($cat);
 					if($parent->getId() == $this->getFunction()){
 						$selected = " selected=\"selected\"";
 					}
-					$listCategory .= "<opttion{$selected} value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
+					$listCategory .= "<option{$selected} value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
 				}
 			} else {
 				foreach ($parentCategory as $parent){
-					$listCategory .= "<opttion value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
+					$listCategory .= "<option value=\"{$parent->getId()}\">".Mage::helper('job')->getTransName($parent).'</option>';
 				}
 			}
 			$this->setData('functionList', $listCategory);
