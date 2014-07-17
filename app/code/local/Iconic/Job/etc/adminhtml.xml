@@ -86,6 +86,12 @@
                 </online>
             </children>
          </customer>
+         <catalog>
+         	<disabled>1</disabled>
+         </catalog>
+         <promo>
+         	<disabled>1</disabled>
+         </promo>
     </menu>
     <acl>
         <resources>
