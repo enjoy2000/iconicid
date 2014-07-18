@@ -464,7 +464,6 @@ button#search-btn{
 	display: inline-block;
 	color: #000;
 	text-decoration: none;
-	letter-spacing: -0.5px;
 	font-size: 12px;
 }
 #feature-tags .flr a:hover{
