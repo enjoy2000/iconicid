@@ -53,6 +53,14 @@ class Iconic_Blog_Adminhtml_Blog_BlogController extends Mage_Adminhtml_Controlle
         if ($data = $this->getRequest()->getPost() ) {
             try {              
                 $blogModel = Mage::getModel('blog/blog');
+				
+				$checkUrlKey = Mage::getModel('blog/blog')->load($data['url_key'], 'url_key');
+				if($checkUrlKey->getId() && $checkUrlKey->getId() != $this->getRequest()->getParam('id')){
+					Mage::getSingleton('adminhtml/session')->addError(Mage::helper('blog')->__('URL key already exists.'));
+	                Mage::getSingleton('adminhtml/session')->setBlogData($this->getRequest()->getPost());
+	                $this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));
+					return;
+				}
 
 				if (isset($_FILES['image']['name']) && ($_FILES['image']['name'] != '')
                     && ($_FILES['image']['size'] != 0) ) {
