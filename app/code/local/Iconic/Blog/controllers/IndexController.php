@@ -107,4 +107,12 @@ class Iconic_Blog_IndexController extends Mage_Core_Controller_Front_Action
 		}
 	}
 	
+	public function testAction(){
+		$features = Mage::getModel('job/feature')->getCollection();
+		foreach($features as $feature){
+			$feature->setUrlKey(Mage::helper('job')->formatUrlKey($feature->getUrlKey()))->save();
+			echo $feature->getName().'<br />';
+		}
+	}
+	
 }
