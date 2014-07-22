@@ -60,7 +60,7 @@ html, button, input, select, textarea {
 	position: absolute;
 	width: 0;
 	height: 0;
-	bottom: -112%;
+	bottom: -30px;
 	left: 50%;
 	pointer-events: none;
 	border: solid transparent;
