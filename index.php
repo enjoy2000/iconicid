@@ -73,7 +73,7 @@ $host = explode("/",$_SERVER['REQUEST_URI']);
 //print_r($host); die();
 switch ($host[1]) {
 case 'en':
-$_SERVER['REQUEST_URI']=str_replace("/en/","/",$_SERVER['REQUEST_URI']);
+$_SERVER['REQUEST_URI']=str_replace("/en","",$_SERVER['REQUEST_URI']);
 $mageRunCode  = "en";
 $mageRunType = "store";
  break;
