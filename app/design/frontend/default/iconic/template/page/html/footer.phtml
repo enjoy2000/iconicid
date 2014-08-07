@@ -80,6 +80,7 @@
     			
     			<!-- FORM -->
     			<form id="contact-us">
+    				<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
     				<div class="row clearfix">
 	    				<input class="fll width-45" required id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
 	    				<input class="flr width-45" required id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />

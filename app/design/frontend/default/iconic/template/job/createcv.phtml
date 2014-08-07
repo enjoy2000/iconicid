@@ -4,6 +4,7 @@
         <h1><?php echo $this->__('Tạo hồ sơ') ?></h1>
     </div>
     <form action="/<?php echo Mage::helper('job')->getCreateCVUrl() ?>" method="post" id="form-validate">
+    	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
     	<div class="row heading">
     		<span><?php echo $this->__('Thông tin chung') ?></span>
     	</div>

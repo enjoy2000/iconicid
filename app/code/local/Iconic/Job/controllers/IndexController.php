@@ -10,6 +10,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 	
 	public function contactAction(){
 		$post = $this->getRequest()->getPost();
+		if(!$this->_validateFormKey()){
+			echo Mage::helper('job')->__('Đã có lỗi xảy ra. Xin vui lòng thử lại sau.'); die;
+		}
 		if($post['email'] && $post['subject'] && $post['message']){
 			try{
 				$mail = new Zend_Mail('UTF-8');
@@ -81,6 +84,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
             return $this;
         }
 		if($this->getRequest()->getPost()){
+			if(!$this->_validateFormKey()){
+				return $this->_redirect('*/*/createcv');
+			}
 			$data = $this->getRequest()->getPost();
 			$birthday = $data['month'].'/'.$data['day'].'/'.$data['year'];
 			//explode the date to get month, day and year

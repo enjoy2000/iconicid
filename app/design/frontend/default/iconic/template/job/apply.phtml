@@ -10,6 +10,7 @@
 </div>
 <div class="form-apply width-60">
 	<form id="form-apply" action="<?php echo Mage::helper('job')->getBaseUrl() ?>job/apply/send" method="POST" >
+		<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
 		<input type="hidden" name="id" value="<?php echo $job->getId() ?>" />
 		<div class="row clearfix">
 			<input class="fll width-40" name="name" type="text" value="<?php echo $user->getName() ?>" readonly="readonly"  />
