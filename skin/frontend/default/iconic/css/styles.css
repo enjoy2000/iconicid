@@ -181,7 +181,7 @@ html, button, input, select, textarea {
 }
 body.cms-home #header #header-landing{
 	min-height: 600px;
-	background: url('../images/landing_bg.png') center 80px no-repeat transparent;
+	background: url('../images/landing_bg.png') center 91px no-repeat transparent;
 }
 #header #header-landing p.slogan{
 	text-align: center;
