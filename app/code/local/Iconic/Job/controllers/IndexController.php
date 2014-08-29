@@ -34,7 +34,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				$bodyHtml = '<table><tbody>';
 				$bodyHtml .= '<tr><td align="center" colspan="2">' . Mage::helper('job')->__('Liên lạc từ IconicVN') . '</td></tr>';
 				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$post['email'].'</td></tr>';
-				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$post['message'].'</td></tr>';
+				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.nl2br($post['message']).'</td></tr>';
 				$bodyHtml .= '</tbody></table>';
 				
 				$mail->setBodyHtml($bodyHtml);

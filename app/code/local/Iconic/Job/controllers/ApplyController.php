@@ -138,7 +138,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Link').':</td><td> '.Mage::helper('job')->getJobLink($job).'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Tên ứng viên').':</td><td> '.$data['name'].'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';			
-			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.nl2br($data['message']).'</td></tr>';
 			$bodyHtml .= '</tbody></table>';
 			
 			$mail->setBodyHtml($bodyHtml);
