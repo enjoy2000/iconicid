@@ -132,15 +132,15 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'name'      => 'job_salary_currency',
             'values'    => array(
 						array(
-							'label' => 'VND',
-							'value' => 'VND'
+							'label' => 'IDR',
+							'value' => 'IDR'
 						),
 						array(
 							'label' => 'USD',
 							'value' => 'USD'
 						),
 			),
-            'value'		=> 'VND',
+            'value'		=> 'IDR',
         ));
 		
 		$fieldset->addField('job_salary_type', 'select', array(

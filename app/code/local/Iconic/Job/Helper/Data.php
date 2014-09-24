@@ -80,7 +80,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
     }
 	
 	public function getCurrency(){
-		return Mage::helper('job')->__('VND');
+		return Mage::helper('job')->__('IDR');
 	}
 
 	public function string_limit_words($string,$number=7){
