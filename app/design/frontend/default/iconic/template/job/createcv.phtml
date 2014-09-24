@@ -37,7 +37,8 @@
     		<input readonly type="text" id="sex" class="first select" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
     		<select name="nation" id="nation" class="last">
     			<option value=""><?php echo $this->__('Quốc tịch') ?></option>
-    			<option value="<?php echo $this->__('Việt Nam') ?>"><?php echo $this->__('Việt Nam') ?></option>
+    			<option value="<?php echo $this->__('Indonesia') ?>"><?php echo $this->__('Indonesia') ?></option>
+    			<option value="<?php echo $this->__('Vietnam') ?>"><?php echo $this->__('Vietnam') ?></option>
     			<option value="<?php echo $this->__('Nước ngoài') ?>"><?php echo $this->__('Nước ngoài') ?></option>
     		</select>
     	</div>
@@ -47,11 +48,12 @@
     	</div>
     	
     	<div class="row row2">
-    		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
+    		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/location')->load($this->getCustomer()->getLocation())->getName() ?>" />
     		
     		<select name="country" id="country" class="last">
     			<option value=""><?php echo $this->__('Quốc gia') ?></option>
-    			<option value="<?php echo $this->__('Việt Nam') ?>"><?php echo $this->__('Việt Nam') ?></option>
+    			<option value="<?php echo $this->__('Indonesia') ?>"><?php echo $this->__('Indonesia') ?></option>
+    			<option value="<?php echo $this->__('Vietnam') ?>"><?php echo $this->__('Vietnam') ?></option>
     			<option value="<?php echo $this->__('Malaysia') ?>"><?php echo $this->__('Malaysia') ?></option>
     			<option value="<?php echo $this->__('Nhật Bản') ?>"><?php echo $this->__('Nhật Bản') ?></option>
     		</select>
@@ -69,6 +71,7 @@
     			<option value=""><?php echo $this->__('Tiền tệ') ?></option>
     			<option value="USD">USD</option>
     			<option value="IDR">IDR</option>
+    			<option value="JPY">JPY</option>
     		</select>
     		<select class="last" name="salarytype" id="salarytype">
     			<option value="">Gross/NET</option>
@@ -87,6 +90,7 @@
     			<option value=""><?php echo $this->__('Tiền tệ') ?></option>
     			<option value="USD">USD</option>
     			<option value="IDR">IDR</option>
+    			<option value="JPY">JPY</option>
     		</select>
     		<select required class="last" name="salarytype2" id="salarytype2">
     			<option value="">Gross/NET</option>
@@ -111,7 +115,7 @@
     	<div class="row row2">
     		<select class="first" name="location2" id="location2">
     			<option value=""><?php echo $this->__('Địa điểm') ?></option>
-    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+    			<?php $list = Mage::getModel('job/location')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
 					<option <?php echo ($data['location2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
@@ -130,7 +134,7 @@
     		<span><?php echo $this->__('Trình độ học vấn') ?></span>
     		<div class="last">
 	    		<input type="radio" name="education" value="1" /> <?php echo $this->__('Nước ngoài') ?>
-	    		<input type="radio" name="education" value="2" /> <?php echo $this->__('Việt Nam') ?>
+	    		<input type="radio" name="education" value="2" /> <?php echo $this->__('Indonesia') ?>
     		</div>
     	</div>
     	
@@ -190,7 +194,7 @@
     		<select name="exp" id="exp" class="last">
     			<option value=""><?php echo $this->__('Số năm kinh nghiệm') ?></option>
     			<?php for($i=1;$i<41;$i++): ?>
-    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> năm</option>
+    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> <?php echo $this->__('tahun') ?></option>
     			<?php endfor; ?>
     		</select>
     	</div>
