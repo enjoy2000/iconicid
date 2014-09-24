@@ -4,7 +4,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 	
 	public function indexAction(){        
 		$this->loadLayout();
-       	$this->getLayout()->getBlock('head')->setTitle($this->__('Jobs Board For IconicVN')); 
+       	$this->getLayout()->getBlock('head')->setTitle($this->__('Jobs Board For IconicID')); 
 		Mage::helper('job')->redirectToSearchPage();
     }
 	
@@ -32,13 +32,13 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				
 				
 				$bodyHtml = '<table><tbody>';
-				$bodyHtml .= '<tr><td align="center" colspan="2">' . Mage::helper('job')->__('Liên lạc từ IconicVN') . '</td></tr>';
+				$bodyHtml .= '<tr><td align="center" colspan="2">' . Mage::helper('job')->__('Liên lạc từ IconicID') . '</td></tr>';
 				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$post['email'].'</td></tr>';
 				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.nl2br($post['message']).'</td></tr>';
 				$bodyHtml .= '</tbody></table>';
 				
 				$mail->setBodyHtml($bodyHtml);
-				$mail->addTo('info@iconic-intl.com', Mage::helper('job')->__('IconicVN'));
+				$mail->addTo('info@iconic-intl.com', Mage::helper('job')->__('IconicID'));
 				$mail->setFrom($post['email'], $post['email']);
 				$mail->setSubject($post['subject']);
 				$checkSend = $mail->send($transport);
@@ -145,9 +145,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$bodyHtml .= '</tbody></table>';
 			
 			$mail->setBodyHtml($bodyHtml);
-			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
-			//$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicVN'));
-			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
+			$mail->addTo('id@iconic-intl.com',Mage::helper('job')->__('IconicID'));
+			//$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicID'));
+			$mail->setFrom('id@iconic-intl.com', Mage::helper('job')->__('IconicID'));
 			$mail->setSubject(Mage::helper('job')->__('[IS] CV của %s %s', $data['ho'], $data['ten']));
 			$checkSend = $mail->send($transport);
 			if($checkSend){
