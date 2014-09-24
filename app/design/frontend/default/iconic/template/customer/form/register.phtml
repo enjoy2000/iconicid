@@ -242,7 +242,7 @@
 								<option value="63">Vĩnh Phúc</option>
 								<option value="64">Yên Bái</option>
 								-->
-								<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+								<?php $list = Mage::getModel('job/location')->getCollection() ?>
 								<?php foreach($list as $loc): ?>
 									<option <?php echo ($this->getFormData()->getLocation()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
 								<?php endforeach; ?>	
