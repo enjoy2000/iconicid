@@ -1,15 +1,13 @@
 {
-    ...
-    "require": {
-        "diglin/diglin_languagecsv":"*"
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.firegento.com"
-        }
-    ],
-    "extra":{
-        "magento-root-dir": "./"
+  "name": "aschroder/smtp_pro",
+  "type": "magento-module",
+  "description": "sending Magento mail through an external smtp-server",
+  "homepage":"https://github.com/aschroder/Magento-SMTP-Pro-Email-Extension",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }, 
+  "authors":[
+    {"name": "aschroder"
     }
+  ]
 }
