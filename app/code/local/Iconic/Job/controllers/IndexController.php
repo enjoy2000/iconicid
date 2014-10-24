@@ -20,15 +20,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
 				
 				
-				$config = array(
-		                    'auth' => 'login',
-		                    'ssl'  => 'tls',
-						    'port' => 587,
-						    'username' => 'test',
-						    'password' => 'testing'
-							);
-		 
-				$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+				$transport = Mage::helper('smtppro')->getTransport();
 				
 				
 				$bodyHtml = '<table><tbody>';
@@ -125,15 +117,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$at->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
 			$at->encoding = Zend_Mime::ENCODING_BASE64;
 			$mail->addAttachment($at);
-			$config = array(
-	                    'auth' => 'login',
-	                    'ssl'  => 'tls',
-					    'port' => 587,
-					    'username' => 'test',
-					    'password' => 'testing'
-						);
-	 
-			$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+			$transport = Mage::helper('smtppro')->getTransport();
 			//get general contact from config admin
 			/* Sender Name */
 			$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
